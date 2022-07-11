@@ -1,0 +1,90 @@
+header img{
+    width: 75px;
+}
+
+header div{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #03141F;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #172830;
+}
+
+#titulo{
+    text-align: center;
+    color: #fff;
+}
+
+#area{
+    background-image: url("background.png");
+    background-repeat: repeat;
+    background-size: 50%;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+#dia{
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: #202C33;
+    opacity: 0.8;
+}
+
+div{
+    background-color: #0B141A;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#msg{
+    border-radius: 25px;
+    background-color: #202C33;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
+    margin-bottom: 10px;
+}
+
+#msg p{
+    color: #fff;
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;  
+}
+
+#msg :last-child{
+    color: #A6ABAD;
+    text-align: right;
+    padding: 0;
+    border: 0;
+}
+
+#msg :first-child{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #94b8f6;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+}
+
+input{
+    padding-left: 100px;
+    color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 980px){
+
+    #area{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+}
