@@ -1,16 +1,22 @@
 header img{
     width: 75px;
+    margin-top: 10px;
 }
 
 header div{
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: hsl(0, 0%, 100%);
     background-color: #03141F;
     font-family: 'Roboto', sans-serif;
 }
 
+header div h1{
+    margin: 10px;
+}
+
 body{
     background-color: #172830;
+    overflow-x: hidden;
 }
 
 #titulo{
@@ -22,8 +28,10 @@ body{
     background-image: url("background.png");
     background-repeat: repeat;
     background-size: 50%;
-    padding-left: 300px;
-    padding-right: 300px;
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 #dia{
@@ -62,6 +70,7 @@ div{
     text-align: right;
     padding: 0;
     border: 0;
+    margin: 1px;
 }
 
 #msg :first-child{
@@ -76,15 +85,46 @@ h1{
 }
 
 input{
-    padding-left: 100px;
+    margin-left: 500px;
+    margin-right: 500px;
     color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 980px){
 
     #area{
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    #titulo{
+        font-size: 75px;
+    }
+
+    #msg p{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    #msg :first-child{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 30px;
+        color: #94b8f6;
+    }
+
+    #dia{
+        font-size: 13px;
+    }
+
+    header div{
+        font-size: 25px;
+    }    
+    
+    header img{
+        width: 100px;
     }
     
 }

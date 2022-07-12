@@ -2,16 +2,16 @@ window.addEventListener('load',() =>{
     document.getElementById('archivo').addEventListener('change',abrirArchivo)
 })
 
-var usuarios = [];
-let fechaAnt = "";
-let allLines = 0;
+let fechaAnt;
+let usuarios =  [""];
+let userColor = [""];
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
     let reader = new FileReader();
-    var fechasMsg = [];
 
     if(archivo){
+        document.getElementById("titulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("archivo").remove();
@@ -21,54 +21,98 @@ function abrirArchivo(evento){
             let contenido = e.target.result;
             var lineas = contenido.split('\n');
             for(var i = 0; lineas.length; i++){
-                console.log(i);
                 DividirMensaje(lineas[i]);
+                console.log(i);
             }
-
         };
         reader.readAsText(archivo);
     }else {
         document.getElementById('mensajes').innerText = "No se seleccionó nada";
-        console.log('no hay archivo')
     } 
 }
 
 function DividirMensaje(linea){
+    let mostrarMsg = false;
+    let brecha =  0;
     linea = linea.split(' ');
+    let usuario = linea[4];
+
+
     let cuerpoMensaje = "";
     let fecha = linea[0];
     let hora = linea[1] + " " + linea[2];
-    let usuario = linea[4];
 
-    for(var i = 5; i < linea.length ; i++){
-        cuerpoMensaje += linea[i] + " ";
-    }
-
+    /*
     console.log("--------------------------");
     console.log("Usuario: " + linea[4]);
     console.log("Fecha de envío: " + fecha);
     console.log("Hora de envío: " + hora);
     console.log("Mensaje: " + cuerpoMensaje);
     console.log("--------------------------");
+*/
+        try{
+        if(fecha == "")
+            return;
 
-    if(fecha == "")
-        return;
+        if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste"){
+            let advert = ""
+            for(var i = 4 ; i < linea.length ; i++){
+                advert += " " + linea[i];
+            }
 
-    if(linea[4] == "Los" || linea[4] == "Cambió"){
-        const warn = document.createElement("p");
-        warn.textContent = linea[4] + " " + cuerpoMensaje;
-        warn.id = "dia";
+            const warn = document.createElement("p");
+            warn.textContent = advert;
+            warn.id = "dia";
+            var currentDiv = document.getElementById("area");
+            currentDiv.append(warn);
+            return;
+        }
 
-        var currentDiv = document.getElementById("area");
-        currentDiv.append(warn);
+        if(usuario[usuario.length] == ":"){
+            brecha = 0;
+            console.log(usuario[usuario.length]);
+            
+        } else{
+            for(var i = 4; i < linea.length ; i++){
+                let temp = linea[i];
+                if(temp[temp.length - 1] == ":"){
+                    console.log(i +". Pase: " + temp + " - Final: " + temp[temp.length - 1]);
+                    brecha = i + 1;
+                    console.log("Brecha: " + brecha);
+                    for(var i = 5 ; i < brecha ; i++){
+                        usuario += " " + linea[i];
+                    }
 
-    } else{
+                    break;
+                }
+            }
+        }
+
+        for(var i = brecha; i < linea.length ; i++){
+            cuerpoMensaje += linea[i] + " ";
+        }
+
+        for(var i = 0 ; i < usuarios.length; i++){
+            if(usuarios[i] == usuario)
+                break;
+            else if(i+1 == usuarios.length){
+                usuarios.push(usuario);
+                userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
+                console.log(userColor);
+            }
+        }
+
         const div = document.createElement("div");
         div.textContent = "";
         div.id = "msg";
 
         const usrText = document.createElement("p");
         usrText.textContent = usuario;
+
+        for(var i = 0 ; i < usuarios.length; i++){
+            if(usuarios[i] == usuario)
+            usrText.style.color = userColor[i];
+        }
 
         const msgText = document.createElement("p");
         msgText.textContent = cuerpoMensaje;
@@ -93,5 +137,7 @@ function DividirMensaje(linea){
         }
         currentDiv.append(div);
         fechaAnt = linea[0];
+    }catch(error){
+        console.error(error);
     }
 }
