@@ -56,6 +56,7 @@ function DividirMensaje(linea){
 
         if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste"){
             let advert = ""
+            
             for(var i = 4 ; i < linea.length ; i++){
                 advert += " " + linea[i];
             }
