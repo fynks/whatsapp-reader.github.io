@@ -14,8 +14,7 @@ function abrirArchivo(evento){
         document.getElementById("titulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
-        document.getElementById("archivo").remove();
-
+        document.getElementById("entrada").remove();
 
         reader.onload = function(e){
             let contenido = e.target.result;
@@ -32,25 +31,14 @@ function abrirArchivo(evento){
 }
 
 function DividirMensaje(linea){
-    let mostrarMsg = false;
     let brecha =  0;
     linea = linea.split(' ');
     let usuario = linea[4];
-
-
     let cuerpoMensaje = "";
     let fecha = linea[0];
     let hora = linea[1] + " " + linea[2];
 
-    /*
-    console.log("--------------------------");
-    console.log("Usuario: " + linea[4]);
-    console.log("Fecha de envío: " + fecha);
-    console.log("Hora de envío: " + hora);
-    console.log("Mensaje: " + cuerpoMensaje);
-    console.log("--------------------------");
-*/
-        try{
+    try{
         if(fecha == "")
             return;
 
@@ -71,19 +59,15 @@ function DividirMensaje(linea){
 
         if(usuario[usuario.length] == ":"){
             brecha = 0;
-            console.log(usuario[usuario.length]);
-            
+                        
         } else{
             for(var i = 4; i < linea.length ; i++){
                 let temp = linea[i];
                 if(temp[temp.length - 1] == ":"){
-                    console.log(i +". Pase: " + temp + " - Final: " + temp[temp.length - 1]);
                     brecha = i + 1;
-                    console.log("Brecha: " + brecha);
                     for(var i = 5 ; i < brecha ; i++){
                         usuario += " " + linea[i];
                     }
-
                     break;
                 }
             }
@@ -93,52 +77,61 @@ function DividirMensaje(linea){
             cuerpoMensaje += linea[i] + " ";
         }
 
-        for(var i = 0 ; i < usuarios.length; i++){
-            if(usuarios[i] == usuario)
-                break;
-            else if(i+1 == usuarios.length){
-                usuarios.push(usuario);
-                userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
-                console.log(userColor);
-            }
+        if(!usuarios.includes(usuario)){
+            usuarios.push(usuario);
+            userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
+            console.log(userColor);
         }
 
-        const div = document.createElement("div");
-        div.textContent = "";
-        div.id = "msg";
-
-        const usrText = document.createElement("p");
-        usrText.textContent = usuario;
-
-        for(var i = 0 ; i < usuarios.length; i++){
-            if(usuarios[i] == usuario)
-            usrText.style.color = userColor[i];
-        }
-
-        const msgText = document.createElement("p");
-        msgText.textContent = cuerpoMensaje;
-        msgText.id = "cuerpo";
-
-        const fechaTexto = document.createElement("p");
-        fechaTexto.textContent = hora;
-        fechaTexto.id = "fecha";
-
-        div.appendChild(usrText);
-        div.appendChild(msgText);
-        div.appendChild(fechaTexto);
-
-        var currentDiv = document.getElementById("area");
-
-        const data = document.createElement("p");
-        data.textContent = linea[0];
-        data.id = "dia";
-
-        if(fechaAnt != linea[0]){
-            currentDiv.append(data);
-        }
-        currentDiv.append(div);
-        fechaAnt = linea[0];
+        AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
+        
     }catch(error){
         console.error(error);
     }
+}
+
+function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
+
+    // Crea el div padre
+    const div = document.createElement("div");
+    div.textContent = "";
+    div.id = "msg";
+
+    // Crea el parrafo para el usuario
+    const usrText = document.createElement("p");
+    usrText.textContent = usuario;
+
+    // Le da su color asignado
+    for(var i = 0 ; i < usuarios.length; i++){
+        if(usuarios[i] == usuario)
+            usrText.style.color = userColor[i];
+    }
+
+    // Crea el párrafo del mensaje
+    const msgText = document.createElement("p");
+    msgText.textContent = cuerpoMensaje;
+    msgText.id = "cuerpo";
+
+    // Crea el párrafo de la fecha
+    const fechaTexto = document.createElement("p");
+    fechaTexto.textContent = hora;
+    fechaTexto.id = "fecha";
+
+    // Obtiene el elemento que será padre del mensaje
+    var currentDiv = document.getElementById("area");
+
+    // Crea el párrafo del día si se necesita
+    if(fechaAnt != linea[0]){
+        const data = document.createElement("p");
+        data.textContent = linea[0];
+        data.id = "dia";
+        currentDiv.append(data);
+    }
+
+    div.appendChild(usrText);
+    div.appendChild(msgText);
+    div.appendChild(fechaTexto);
+    currentDiv.append(div);
+
+    fechaAnt = linea[0];
 }
