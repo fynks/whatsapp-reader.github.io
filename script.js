@@ -5,6 +5,7 @@ window.addEventListener('load',() =>{
 let fechaAnt;
 let usuarios =  [""];
 let userColor = [""];
+const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
@@ -15,6 +16,7 @@ function abrirArchivo(evento){
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("entrada").remove();
+
 
         reader.onload = function(e){
             let contenido = e.target.result;
@@ -54,6 +56,21 @@ function DividirMensaje(linea){
             warn.id = "dia";
             var currentDiv = document.getElementById("area");
             currentDiv.append(warn);
+            return;
+        }
+
+        if(fecha.split('/').length < 3){
+            for(var i = 0 ; i < linea.length ; i++){
+                cuerpoMensaje += linea[i] + " ";
+            }
+
+            var currentDiv = document.getElementById("area");
+            const msgCont = document.createElement("div");
+            msgCont.id = "msgcont";
+            const cuerpoMsg = document.createElement("p");
+            cuerpoMsg.textContent = cuerpoMensaje   ;
+            msgCont.append(cuerpoMsg);
+            currentDiv.append(msgCont);
             return;
         }
 
@@ -123,7 +140,7 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     // Crea el párrafo del día si se necesita
     if(fechaAnt != linea[0]){
         const data = document.createElement("p");
-        data.textContent = linea[0];
+        data.textContent = linea[0].split('/')[0] + " de " + meses[linea[0].split('/')[1] - 1] + " del " + linea[0].split('/')[2];
         data.id = "dia";
         currentDiv.append(data);
     }
