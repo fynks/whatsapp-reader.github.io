@@ -13,14 +13,7 @@ Only need the `.txt` of the chat and upload in the entry of the site.
 after that, you can see all the chat than WhatsApp.
 
 # Issues 
-A lot, and this is only an experiment XD
-this is my first time in a JavaScript project.
-
 - The format recognizable for the app is only the Spanish for any keyword.
-- The program reads line per line, and for a multiline message the program recognize than an other word.
-- Laggy
-- Laggy
-- Laggy
 - Laggy
 
 # Preview
