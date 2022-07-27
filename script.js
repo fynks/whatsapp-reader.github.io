@@ -3,19 +3,20 @@ window.addEventListener('load',() =>{
 })
 
 let fechaAnt;
-let usuarios =  [""];
-let userColor = [""];
-const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+let usuarios =  [];
+let userColor = [];
+const meses = ["enero", "febrero", "Marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
     let reader = new FileReader();
 
     if(archivo){
-        document.getElementById("titulo").textContent = archivo.name;
+        document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("entrada").remove();
+        var docElements = document.getElementsByClassName("parraf")[document.getElementsByClassName("parraf").length - 1];
 
 
         reader.onload = function(e){
@@ -23,7 +24,7 @@ function abrirArchivo(evento){
             var lineas = contenido.split('\n');
             for(var i = 0; lineas.length; i++){
                 DividirMensaje(lineas[i]);
-                console.log(i);
+                docElements.textContent = "Se han cargado " + lineas.length + " mensajes";  
             }
         };
         reader.readAsText(archivo);
@@ -44,7 +45,9 @@ function DividirMensaje(linea){
         if(fecha == "")
             return;
 
-        if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste"){
+        if(linea[4] == "Esta") console.log(linea);
+
+        if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste" || linea[4] == "Este" || linea[4] == "Esta"){
             let advert = ""
             
             for(var i = 4 ; i < linea.length ; i++){
@@ -151,4 +154,24 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     currentDiv.append(div);
 
     fechaAnt = linea[0];
+}
+
+
+function whatsapptwo(){
+    document.getElementById("logoapp").src = "assets/images/whatsapp.png";
+    document.getElementById("wareader").textContent = "WhatsApp 2";
+
+    document.getElementById("titulo").textContent = "WhatsApp 2 Revealed";
+    document.getElementById("subtitulo").textContent = "Con el carro de WhatsApp";
+    for(element of document.getElementsByClassName("parraf")) element.textContent = "";
+    document.getElementById("entrada").remove();
+    document.getElementById("area").remove();
+
+    let carrodiv = document.createElement("div");
+    carrodiv.id = "carrowasa";
+    
+    let carro = document.createElement("img");
+    carro.src = "assets/images/carro.png";
+    carrodiv.appendChild(carro);
+    document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
 }

@@ -1,20 +1,86 @@
 header img{
+    width: 50px;
+}
+
+header{
+    background-color: #0B141A;
+}
+
+#footarea{
+    background-color: #0B141A;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+    justify-items: center;
+    align-content: center;
+}
+
+#footarea div span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+#footarea div{
+    background-color: transparent;
+
+}
+
+#footarea div img{
     width: 75px;
-    margin-top: 10px;
+    border-radius: 50%;
+}
+
+#gitlogo{
+    filter: invert(100%);
+}
+
+#centralText{
+    text-align: center;
+}
+
+#final{
+    border-radius: 0;
+    background-color: #030C12;
+    text-align: center;
+}
+
+#final span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: white;
+}
+
+.parraf{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
+#logoapp{
+    width: 40px;
 }
 
 header div{
-    text-align: center;
+    padding: 15px;
+    display: flex;
+    align-items:center;
+    justify-content: left;
     color: hsl(0, 0%, 100%);
-    background-color: #03141F;
     font-family: 'Roboto', sans-serif;
 }
 
-header div h1{
-    margin: 10px;
+header span{
+    margin-left: 5px;
+    font-weight: 400;
+    font-size: 25px;
 }
 
 body{
+    margin: 0;
     background-color: #172830;
     overflow-x: hidden; 
 }
@@ -25,18 +91,19 @@ body{
 }
 
 #area{
-    background-image: url("background.png");
+    background-image: url("assets/images/background.png");
     background-repeat: repeat;
     background-size: 50%;
     padding-left: 200px;
     padding-right: 200px;
     margin-left: 150px;
     margin-right: 150px;
+    margin-bottom: 25px;
 }
 
 #dia{
     color: #fff;
-    border-radius: 100px;
+    border-radius: 7px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -113,7 +180,7 @@ div{
 }
 
 #entrada{
-    border-radius: 5px;
+    border-radius: 0;
     text-align: center;
 }
 
@@ -121,6 +188,33 @@ input{
     color: rgb(255, 255, 255);
     text-align: center;
 }
+
+#divisor{
+    content: "";
+    display:flex;
+    width: 100%;
+    height: 2px;
+    background-color: #03141F;
+}
+
+#contdiv{
+    background-color: transparent;
+    padding: 0;
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+#carrowasa{
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+#carrowasa img{
+    max-width: 40%;
+    border-radius: 10px;
+}
+
 
 @media screen and (max-width: 980px){
 
@@ -132,6 +226,8 @@ input{
     }
 
     #titulo{
+        margin-right: 30px;
+        margin-left: 30px;
         font-size: 75px;
     }
 
@@ -169,15 +265,22 @@ input{
     }
 
     #dia{
-        font-size: 25px;
+        font-size: 15px;
     }
 
-    header div{
-        font-size: 25px;
-    }    
-    
-    header img{
-        width: 100px;
+    #footarea div span{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+    }
+
+    #logoapp{
+        width: 75px;
+    }
+
+    header span{
+        font-size: 40px;
     }
     
 }
