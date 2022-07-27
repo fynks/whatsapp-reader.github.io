@@ -54,11 +54,18 @@ header{
     color: white;
 }
 
-.parraf{
+#desc{
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #fff;
 }
+
+#parraf{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
 
 #logoapp{
     width: 40px;
@@ -70,7 +77,8 @@ header div{
     align-items:center;
     justify-content: left;
     color: hsl(0, 0%, 100%);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
 }
 
 header span{
@@ -86,6 +94,7 @@ body{
 }
 
 #titulo{
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #fff;
 }
@@ -169,10 +178,6 @@ div{
     overflow-wrap: break-word;
 }
 
-#titulo{
-    font-family: 'Roboto', sans-serif;
-}
-
 #subtitulo{
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -184,24 +189,8 @@ div{
     text-align: center;
 }
 
-input{
-    color: rgb(255, 255, 255);
-    text-align: center;
-}
-
-#divisor{
-    content: "";
-    display:flex;
-    width: 100%;
-    height: 2px;
-    background-color: #03141F;
-}
-
-#contdiv{
-    background-color: transparent;
-    padding: 0;
-    margin-right: 70px;
-    margin-left: 70px;
+#entrada input{
+    color: white;
 }
 
 #carrowasa{
@@ -232,7 +221,7 @@ input{
     }
 
     #msg{
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         border-radius: 30px;
     }
 
@@ -277,6 +266,11 @@ input{
 
     #logoapp{
         width: 75px;
+    }
+
+    #desc{
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     header span{

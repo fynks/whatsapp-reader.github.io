@@ -12,25 +12,25 @@ function abrirArchivo(evento){
     let reader = new FileReader();
 
     if(archivo){
+        if(archivo.name.substring(archivo.name.length - 3,archivo.name.length) != "txt"){
+            document.getElementById("subtitulo").textContent = "Seleccione un archivo con la extensión .txt";
+            return;
+        }
+
         document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("entrada").remove();
-        var docElements = document.getElementsByClassName("parraf")[document.getElementsByClassName("parraf").length - 1];
-
-
         reader.onload = function(e){
             let contenido = e.target.result;
             var lineas = contenido.split('\n');
             for(var i = 0; lineas.length; i++){
                 DividirMensaje(lineas[i]);
-                docElements.textContent = "Se han cargado " + lineas.length + " mensajes";  
+                document.getElementById("parraf").textContent = "Se han cargado " + lineas.length + " mensajes";  
             }
         };
         reader.readAsText(archivo);
-    }else {
-        document.getElementById('mensajes').innerText = "No se seleccionó nada";
-    } 
+    } else {document.getElementById("subtitulo").textContent = "No se pudo cargar el archivo" };
 }
 
 function DividirMensaje(linea){
@@ -40,25 +40,51 @@ function DividirMensaje(linea){
     let cuerpoMensaje = "";
     let fecha = linea[0];
     let hora = linea[1] + " " + linea[2];
-
+    var firstSerie = linea[4] + " " + linea[5];
+    var lastSerie = linea[linea.length - 3] + " " + linea[linea.length - 2] + " " +linea[linea.length - 1];
+    
     try{
         if(fecha == "")
             return;
 
-        if(linea[4] == "Esta") console.log(linea);
-
         if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste" || linea[4] == "Este" || linea[4] == "Esta"){
-            let advert = ""
-            
-            for(var i = 4 ; i < linea.length ; i++){
-                advert += " " + linea[i];
-            }
+            advertMsg(linea);
+            return;
+        }
 
-            const warn = document.createElement("p");
-            warn.textContent = advert;
-            warn.id = "dia";
-            var currentDiv = document.getElementById("area");
-            currentDiv.append(warn);
+        if(firstSerie == "Eliminaste a"){
+            advertMsg(linea);
+            return;
+        }
+        
+        if(firstSerie == "Añadiste a"){
+            advertMsg(linea);
+            return;
+        }
+
+        if(firstSerie == "Se añadió"){
+            advertMsg(linea);
+            return;
+        }
+
+        if(lastSerie == "salió del grupo"){
+            advertMsg(linea);
+            return;
+        }
+
+        if(lastSerie == "descripción del grupo"){
+            advertMsg(linea);
+            return;
+        }
+
+        if(lastSerie == "inició una llamada"){
+            advertMsg(linea);
+            return;
+        }
+
+        
+        if(lastSerie == "admin. del grupo"){
+            advertMsg(linea);
             return;
         }
 
@@ -66,7 +92,6 @@ function DividirMensaje(linea){
             for(var i = 0 ; i < linea.length ; i++){
                 cuerpoMensaje += linea[i] + " ";
             }
-
             var currentDiv = document.getElementById("area");
             const msgCont = document.createElement("div");
             msgCont.id = "msgcont";
@@ -79,7 +104,6 @@ function DividirMensaje(linea){
 
         if(usuario[usuario.length] == ":"){
             brecha = 0;
-                        
         } else{
             for(var i = 4; i < linea.length ; i++){
                 let temp = linea[i];
@@ -98,20 +122,16 @@ function DividirMensaje(linea){
         }
 
         if(!usuarios.includes(usuario)){
+            console.log(linea);
             usuarios.push(usuario);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
-            console.log(userColor);
         }
 
         AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
-        
-    }catch(error){
-        console.error(error);
-    }
+    }catch(error){console.error(error)};
 }
 
 function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
-
     // Crea el div padre
     const div = document.createElement("div");
     div.textContent = "";
@@ -174,4 +194,19 @@ function whatsapptwo(){
     carro.src = "assets/images/carro.png";
     carrodiv.appendChild(carro);
     document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
+}
+
+function advertMsg(linea){
+    let advert = ""
+            
+    for(var i = 4 ; i < linea.length ; i++){
+        advert += " " + linea[i];
+    }
+
+    const warn = document.createElement("p");
+    warn.textContent = advert;
+    warn.id = "dia";
+    var currentDiv = document.getElementById("area");
+    currentDiv.append(warn);
+    return;
 }
