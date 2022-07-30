@@ -333,8 +333,9 @@ div{
 
     #footarea div span{
         font-family: 'Roboto', sans-serif;
-        font-size: 12px;
+        font-size: 10px;
         text-align: center;
+        overflow-wrap: break-word;
         color: #fff;
     }
 
