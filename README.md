@@ -13,7 +13,6 @@ Only need the `.txt` of the chat and upload in the entry of the site.
 after that, you can see all the chat than WhatsApp.
 
 # Issues 
-- The format recognizable for the app is only the Spanish for any keyword.
 - Laggy
 
 # Preview

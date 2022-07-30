@@ -19,21 +19,27 @@ header{
 
 #footarea div span{
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
     color: #fff;
 }
 
 #footarea div{
+    display: grid;
     background-color: transparent;
-
+    justify-content: center;
+    align-content: center;
 }
 
 #footarea div img{
     width: 75px;
     border-radius: 50%;
+    transition: opacity 0.2s;
 }
 
+#footarea div img:hover{
+    opacity: 50%;
+}
 #gitlogo{
     filter: invert(100%);
 }
@@ -66,6 +72,13 @@ header{
     color: #fff;
 }
 
+#userParraf{
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    text-align: center;
+    color: #fff;
+}
+
 
 #logoapp{
     width: 40px;
@@ -77,13 +90,12 @@ header div{
     align-items:center;
     justify-content: left;
     color: hsl(0, 0%, 100%);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
 }
 
 header span{
     margin-left: 5px;
-    font-weight: 400;
     font-size: 25px;
 }
 
@@ -105,8 +117,8 @@ body{
     background-size: 50%;
     padding-left: 200px;
     padding-right: 200px;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-bottom: 25px;
 }
 
@@ -154,6 +166,7 @@ div{
 }
 
 #msg :first-child{
+    margin-top: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 20px;
@@ -181,7 +194,7 @@ div{
 #subtitulo{
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    color: #fff;
+    color: #b4ffae;
 }
 
 #entrada{
@@ -204,7 +217,71 @@ div{
     border-radius: 10px;
 }
 
+#contUsers{
+    display: none;  
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+}
 
+#user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b4ffae;
+}
+
+#imagen{
+    background-image: url("https://cdn2.iconfinder.com/data/icons/font-awesome/1792/user-512.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+}
+
+#user span{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+#entrada input{
+    display: none;
+}
+
+#entrada label{
+    display: block;
+    padding: 10px;
+    border: 1px solid #202C33;
+    background-color: #b4ffae;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 10px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1092/1092216.png");
+    background-repeat: no-repeat;
+    background-position:5%;
+    background-size: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.1s;
+}
+
+#entrada label:active{
+    background-color: #76a872;
+}
 @media screen and (max-width: 980px){
 
     #area{
@@ -213,33 +290,30 @@ div{
         margin-right: 30px;
         margin-left: 30px;
     }
+    
+    #contUsers{
+        margin-right: 30px;
+        margin-left: 30px;    
+    }
+
+    #user span {
+        font-size: 20px;
+    }
+
+    #imagen{
+        width: 35px;
+        height: 35px;
+    }
 
     #titulo{
         margin-right: 30px;
         margin-left: 30px;
-        font-size: 75px;
+        font-size: 55px;
     }
 
     #msg{
         margin-bottom: 20px;
         border-radius: 30px;
-    }
-
-    #msg p{
-        font-size: 20px;
-        margin-bottom: 20px;
-        padding-left: 10px;
-    }
-
-    #msg :first-child{
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
-        font-size: 30px;
-        color: #94b8f6;
-    }
-
-    #msg :last-child{
-        padding-right: 5px
     }
 
     #msgcont{
@@ -269,12 +343,23 @@ div{
     }
 
     #desc{
+        font-size: 12px;
         margin-left: 25px;
         margin-right: 25px;
     }
 
+    #parraf{
+        font-size: 14px;
+    }
+
     header span{
         font-size: 40px;
+    }
+
+    #entrada label{
+        margin-left: 20%;
+        margin-right: 20%;
+        background-size: 6%;
     }
     
 }

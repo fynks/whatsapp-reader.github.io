@@ -10,23 +10,26 @@ const meses = ["enero", "febrero", "Marzo", "abril", "mayo", "junio", "julio", "
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
     let reader = new FileReader();
+    var lineas = "";
 
     if(archivo){
         if(archivo.name.substring(archivo.name.length - 3,archivo.name.length) != "txt"){
             document.getElementById("subtitulo").textContent = "Seleccione un archivo con la extensión .txt";
             return;
         }
-
         document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("entrada").remove();
         reader.onload = function(e){
             let contenido = e.target.result;
-            var lineas = contenido.split('\n');
+            lineas = contenido.split('\n');
+
+            internationalNumberFormat = new Intl.NumberFormat('es-US')
+
+            document.getElementById("parraf").textContent = "Se han cargado " + internationalNumberFormat.format(parseInt(lineas.length)) + " mensajes";  
             for(var i = 0; lineas.length; i++){
                 DividirMensaje(lineas[i]);
-                document.getElementById("parraf").textContent = "Se han cargado " + lineas.length + " mensajes";  
             }
         };
         reader.readAsText(archivo);
@@ -125,6 +128,7 @@ function DividirMensaje(linea){
             console.log(linea);
             usuarios.push(usuario);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
+            listUsers();
         }
 
         AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
@@ -143,8 +147,9 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
 
     // Le da su color asignado
     for(var i = 0 ; i < usuarios.length; i++){
-        if(usuarios[i] == usuario)
+        if(usuarios[i] == usuario){
             usrText.style.color = userColor[i];
+        }
     }
 
     // Crea el párrafo del mensaje
@@ -210,3 +215,26 @@ function advertMsg(linea){
     currentDiv.append(warn);
     return;
 }
+
+function listUsers(){
+    const userParraf = document.getElementById("userParraf");
+    userParraf.style.display = "block"
+
+    const mainDiv = document.getElementById("contUsers");
+    mainDiv.style.display = "flex"
+
+    const userDiv = document.createElement("div");
+    userDiv.id = "user";
+    userDiv.style.backgroundColor = userColor[userColor.length - 1];
+
+    const userIcon = document.createElement("div");
+    userIcon.id = "imagen";
+
+    const username = document.createElement("span");
+    username.textContent = usuarios[usuarios.length - 1].substring(0,usuarios[usuarios.length - 1].length-1);
+
+    userDiv.appendChild(userIcon);
+    userDiv.appendChild(username);
+    mainDiv.appendChild(userDiv);
+}
+

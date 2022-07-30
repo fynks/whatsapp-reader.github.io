@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
         <title>WhatsApp Reader</title>
     </head>
 
@@ -22,11 +22,19 @@
         <h1 id="titulo">Interpreta tus mensajes exportados</h1>
         <p id="desc">Cuando exportas tu chat de WA, se torna caótico leer las conversaciones<br>WA Reader les otorga formato a las conversaciones y las muestra con si fuese el original.<br></p>
         <h2 id="subtitulo">Selecciona el archivo para otorgar el formato</h3>
+
         <div id="entrada">
+            <label for="archivo">Elige un archivo</label>
             <input type="file" id="archivo">
         </div>
+        
         <script src="script.js"></script>
         <p id="parraf">Vista previa</p>
+        <p id="userParraf">Usuarios en la conversación:</p>
+
+        <div id="contUsers">
+        </div>
+
         <div id = "area">
             <p id="dia">10 de septiembre del 2022</p>
             <div id="msg">
