@@ -26,7 +26,7 @@ function abrirArchivo(evento){
             lineas = contenido.split('\n');
 
             internationalNumberFormat = new Intl.NumberFormat('es-US')
-
+            document.getElementById("reload").style.display = "flex";
             document.getElementById("parraf").textContent = "Se han cargado " + internationalNumberFormat.format(parseInt(lineas.length)) + " mensajes";  
             for(var i = 0; lineas.length; i++){
                 DividirMensaje(lineas[i]);
@@ -91,6 +91,51 @@ function DividirMensaje(linea){
             return;
         }
 
+        if(linea.join(" ").includes("creó el grupo") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("te añadió.") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("añadió a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("cambió el ícono") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("cambió el asunto de") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("se unió usando el enlace") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("cambió a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("cambió los ajustes de este grupo") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
+        if(linea.join(" ").includes("eliminó a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            return;
+        }
+
         if(fecha.split('/').length < 3){
             for(var i = 0 ; i < linea.length ; i++){
                 cuerpoMensaje += linea[i] + " ";
@@ -105,8 +150,8 @@ function DividirMensaje(linea){
             return;
         }
 
-        if(usuario[usuario.length] == ":"){
-            brecha = 0;
+        if(usuario[usuario.length - 1] == ":"){
+            brecha = 5;
         } else{
             for(var i = 4; i < linea.length ; i++){
                 let temp = linea[i];
@@ -125,14 +170,14 @@ function DividirMensaje(linea){
         }
 
         if(!usuarios.includes(usuario)){
-            console.log(linea);
             usuarios.push(usuario);
+            console.log(linea);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
             listUsers();
         }
 
         AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
-    }catch(error){console.error(error)};
+    }catch(error){};
 }
 
 function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
@@ -210,7 +255,7 @@ function advertMsg(linea){
 
     const warn = document.createElement("p");
     warn.textContent = advert;
-    warn.id = "dia";
+    warn.id = "warn";
     var currentDiv = document.getElementById("area");
     currentDiv.append(warn);
     return;
