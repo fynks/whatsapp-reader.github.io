@@ -6,7 +6,7 @@ let fechaAnt;
 let usuarios =  [];
 let userColor = [];
 const meses = ["enero", "febrero", "Marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-let advertencias = ["Los mensajes y las","Cambió tu código","creó el grupo", "añadió a", "cambió el ícono", 
+let advertencias = ["Los mensajes y","Cambió tu código","creó el grupo", "añadió a", "cambió el ícono", 
                     "salió del grupo", "Eliminaste a", "Añadiste a", "Se añadió a", "cambió la descripción",
                     "inició una llamada", "Cambiaste el", "admin. del grupo", "cambió los ajustes",
                     "se unió usando el enlace", "cambió el asunto", "cambió a","eliminó a","Creaste el grupo",
