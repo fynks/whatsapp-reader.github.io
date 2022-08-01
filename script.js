@@ -6,6 +6,11 @@ let fechaAnt;
 let usuarios =  [];
 let userColor = [];
 const meses = ["enero", "febrero", "Marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+let advertencias = ["Los mensajes y las","Cambió tu código","creó el grupo", "añadió a", "cambió el ícono", 
+                    "salió del grupo", "Eliminaste a", "Añadiste a", "Se añadió a", "cambió la descripción",
+                    "inició una llamada", "Cambiaste el", "admin. del grupo", "cambió los ajustes",
+                    "se unió usando el enlace", "cambió el asunto", "cambió a","eliminó a","Creaste el grupo",
+                    "te añadió."]
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
@@ -21,6 +26,7 @@ function abrirArchivo(evento){
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("entrada").remove();
+
         reader.onload = function(e){
             let contenido = e.target.result;
             lineas = contenido.split('\n');
@@ -33,7 +39,7 @@ function abrirArchivo(evento){
             }
         };
         reader.readAsText(archivo);
-    } else {document.getElementById("subtitulo").textContent = "No se pudo cargar el archivo" };
+    } else document.getElementById("subtitulo").textContent = "No se pudo cargar el archivo";
 }
 
 function DividirMensaje(linea){
@@ -43,98 +49,10 @@ function DividirMensaje(linea){
     let cuerpoMensaje = "";
     let fecha = linea[0];
     let hora = linea[1] + " " + linea[2];
-    var firstSerie = linea[4] + " " + linea[5];
-    var lastSerie = linea[linea.length - 3] + " " + linea[linea.length - 2] + " " +linea[linea.length - 1];
-    
+
     try{
-        if(fecha == "")
+        if(checks(linea,fecha))
             return;
-
-        if(linea[4] == "Los" || linea[4] == "Cambió" || linea[4] == "Creaste" || linea[4] == "Cambiaste" || linea[4] == "Este" || linea[4] == "Esta"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(firstSerie == "Eliminaste a"){
-            advertMsg(linea);
-            return;
-        }
-        
-        if(firstSerie == "Añadiste a"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(firstSerie == "Se añadió"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(lastSerie == "salió del grupo"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(lastSerie == "descripción del grupo"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(lastSerie == "inició una llamada"){
-            advertMsg(linea);
-            return;
-        }
-
-        
-        if(lastSerie == "admin. del grupo"){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("creó el grupo") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("te añadió.") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("añadió a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("cambió el ícono") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("cambió el asunto de") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("se unió usando el enlace") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("cambió a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("cambió los ajustes de este grupo") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
-
-        if(linea.join(" ").includes("eliminó a") && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
-            advertMsg(linea);
-            return;
-        }
 
         if(fecha.split('/').length < 3){
             for(var i = 0 ; i < linea.length ; i++){
@@ -171,7 +89,6 @@ function DividirMensaje(linea){
 
         if(!usuarios.includes(usuario)){
             usuarios.push(usuario);
-            console.log(linea);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
             listUsers();
         }
@@ -181,6 +98,7 @@ function DividirMensaje(linea){
 }
 
 function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
+    console.log(linea);
     // Crea el div padre
     const div = document.createElement("div");
     div.textContent = "";
@@ -226,26 +144,6 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     fechaAnt = linea[0];
 }
 
-
-function whatsapptwo(){
-    document.getElementById("logoapp").src = "assets/images/whatsapp.png";
-    document.getElementById("wareader").textContent = "WhatsApp 2";
-
-    document.getElementById("titulo").textContent = "WhatsApp 2 Revealed";
-    document.getElementById("subtitulo").textContent = "Con el carro de WhatsApp";
-    for(element of document.getElementsByClassName("parraf")) element.textContent = "";
-    document.getElementById("entrada").remove();
-    document.getElementById("area").remove();
-
-    let carrodiv = document.createElement("div");
-    carrodiv.id = "carrowasa";
-    
-    let carro = document.createElement("img");
-    carro.src = "assets/images/carro.png";
-    carrodiv.appendChild(carro);
-    document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
-}
-
 function advertMsg(linea){
     let advert = ""
             
@@ -258,7 +156,6 @@ function advertMsg(linea){
     warn.id = "warn";
     var currentDiv = document.getElementById("area");
     currentDiv.append(warn);
-    return;
 }
 
 function listUsers(){
@@ -281,5 +178,21 @@ function listUsers(){
     userDiv.appendChild(userIcon);
     userDiv.appendChild(username);
     mainDiv.appendChild(userDiv);
+}
+
+function checks(linea,fecha){
+    var flag = false;
+
+    if(fecha == "")
+        return true;
+
+    advertencias.forEach(function(adv){
+        if(linea.join(" ").includes(adv) && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){
+            advertMsg(linea);
+            flag = true;
+            return true;
+        }
+    });
+    return flag;
 }
 
