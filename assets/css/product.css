@@ -68,7 +68,7 @@
 }
 
 #dia{
-    top:75px;
+    top:85px;
     margin-left: 25%;
     margin-right: 25%;
     position: sticky;
@@ -147,6 +147,7 @@
 }
 
 #entrada{
+    background-color: #0B141A;
     border-radius: 0;
     text-align: center;
 }
@@ -168,6 +169,7 @@
 
 #contUsers{
     display: none;  
+    background-color: #0B141A;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;

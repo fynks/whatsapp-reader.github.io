@@ -1,4 +1,5 @@
-# WhatsApp Format
+# Now with english support!
+## WhatsApp Reader
 Interpreat the exported chat from WhatsApp to something readable.
 
 # How to export a chat?
