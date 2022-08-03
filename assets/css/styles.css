@@ -5,6 +5,7 @@
 #headercont{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    border-radius: 0;
 }
 
 header{
@@ -70,11 +71,12 @@ header{
 #footarea div img{
     width: 75px;
     border-radius: 50%;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
 
 #footarea div img:hover{
     opacity: 50%;
+    transform: scale(1.2);
 }
 
 #gitlogo{

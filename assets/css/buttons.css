@@ -85,3 +85,18 @@ button{
     background-size: 100%;
     filter: brightness(150%);
 }
+
+@media screen and (max-width: 980px){
+    #day{    
+        height: 65px;    
+    }
+    #night{
+        height: 65px;    
+    }
+    #esp{
+        height: 65px;    
+    }
+    #eng{
+        height: 65px;    
+    }
+}

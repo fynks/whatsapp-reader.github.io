@@ -1,5 +1,6 @@
 # Now with english support!
-## WhatsApp Reader
+## and Light Mode
+# WhatsApp Reader
 Interpreat the exported chat from WhatsApp to something readable.
 
 # How to export a chat?

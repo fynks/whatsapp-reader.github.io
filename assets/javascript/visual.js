@@ -1,6 +1,17 @@
+window.onload = function(){
+
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? switchNi() : switchDay();
+
+    if(navigator.language == 'es' || navigator.language == 'es-419' || navigator.language == 'es-ES'){
+        switchEsp();
+    }
+    else{
+        switchEng();
+    }
+}
 
 function switchNi(){
-    console.log("night");
+    nmode = true;
     let buttonNi = document.getElementById("night");
     if(buttonNi.style.backgroundColor == "rgb(24, 44, 57)")
         return;
@@ -10,10 +21,12 @@ function switchNi(){
     buttonDay.style.backgroundColor = "#030c12";
     buttonNi.style.backgroundColor = "#182c39";
 
+    document.getElementById("alter").href = "";
 }
 
 function switchDay(){
     console.log("day");
+    nmode = false;
     let buttonDay = document.getElementById("day");
     if(buttonDay.style.backgroundColor == "rgb(24, 44, 57)")
         return;
@@ -22,5 +35,7 @@ function switchDay(){
 
     buttonNi.style.backgroundColor = "#030c12";
     buttonDay.style.backgroundColor = "#182c39";
+
+    document.getElementById("alter").href = "assets/css/productlight.css";
 
 }

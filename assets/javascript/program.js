@@ -6,6 +6,7 @@ let fechaAnt;
 let usuarios =  [];
 let userColor = [];
 var eng = true;
+var nmode = true;
 var msgChar = 0;
 const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 const months = ["January", "February", "March", "April", "May", "June", "July","August","September","Octuber","November","December"];
@@ -17,7 +18,7 @@ let advertencias = ["Los mensajes y","Cambió tu código","creó el grupo", "añ
 let warnings = ["Messages and calls are","left","You're no longer","changed to", "You removed","Your security code with",
                 "added","changed this group's","created group","Your'e now an admin","You created group","was added",
                 "changed the group description","joined using this group's","changed the subject","changed the group",
-                "You're now an admin"];
+                "You're now an admin","started a call"];
 
 
 function abrirArchivo(evento){
@@ -73,7 +74,9 @@ function DividirMensaje(linea){
     try{
         if(checks(linea,fecha))
             return;
-
+            console.log(linea.join(' ') + " - " + fecha + " / ");
+            console.log(fecha.split('/').length + " " + fecha.length);
+            
         if(fecha.split('/').length < 3){
             for(var i = 0 ; i < linea.length ; i++){
                 cuerpoMensaje += linea[i] + " ";
@@ -152,7 +155,10 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
         const data = document.createElement("p");
 
         if(!eng){
-            data.textContent = linea[0].split('/')[0] + " de " + meses[linea[0].split('/')[1] - 1] + " del " + linea[0].split('/')[2];
+            var year = parseInt(linea[0].split('/')[2]);
+            if(year < 2000)
+                year += 2000;
+            data.textContent = linea[0].split('/')[0] + " de " + meses[linea[0].split('/')[1] - 1] + " de " + year;
         }
         else{
             var year = parseInt(linea[0].split('/')[2].substring(0,linea[0].split('/')[2].length - 1));
@@ -209,10 +215,7 @@ function listUsers(){
 
 function checks(linea,fecha){
     var flag = false;
-    console.log(eng);
-    if(fecha == "")
-        return true;
-    
+
     if(!eng){
         advertencias.forEach(function(adv){
             if(linea.join(" ").includes(adv) && !linea.join(" ").substring(20,linea.join(" ").length).includes(":")){

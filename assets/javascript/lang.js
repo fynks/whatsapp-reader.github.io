@@ -1,5 +1,3 @@
-window.onload = switchEng();
-
 function switchEsp(){
     try{
         eng = false;
@@ -7,7 +5,6 @@ function switchEsp(){
         if(buttonEsp.style.backgroundColor == "rgb(24, 44, 57)")
             return;
 
-        console.log("esp");
         let buttonEng = document.getElementById("eng");
 
         buttonEng.style.backgroundColor = "#030c12";
@@ -15,7 +12,7 @@ function switchEsp(){
 
         
         document.getElementById("titulo").textContent = "Interpreta tus mensajes exportados";
-        document.getElementById("desc").innerHTML = "Cuando exportas tu chat de WA, se torna caótico leer las conversaciones<br>WA Reader les otorga formato a las conversaciones y las muestra con si fuese el original.";
+        document.getElementById("desc").innerHTML = "Cuando exportas tu chat de WA, se torna caótico leer las conversaciones<br>WA Reader les otorga formato a las conversaciones y las muestra como si fuese el original.";
         document.getElementById("txtDev").textContent = "Desarrollador";
         document.getElementById("txtDisc").innerHTML = "Esta página web funciona solo para experimento<br>";
         document.getElementById("txtCod").textContent = "Codigo fuente";
@@ -48,7 +45,6 @@ function switchEng(){
         if(buttonEng.style.backgroundColor == "rgb(24, 44, 57)")
             return;
 
-        console.log("eng")
         let buttonEsp = document.getElementById("esp");
 
         buttonEsp.style.backgroundColor = "#030c12";
