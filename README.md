@@ -1,5 +1,4 @@
-# Now with english support!
-## and Light Mode
+**Now with english and light mode support**
 # WhatsApp Reader
 Interpreat the exported chat from WhatsApp to something readable.
 
@@ -18,6 +17,6 @@ after that, you can see all the chat than WhatsApp.
 - Laggy
 
 # Preview
-https://deibikint.github.io/whatsapp-reader.github.io/
+https://davidquintr.github.io/whatsapp-reader.github.io/
 
 ### Made by DavidQuint
