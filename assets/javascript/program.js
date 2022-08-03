@@ -81,13 +81,10 @@ function DividirMensaje(linea){
             for(var i = 0 ; i < linea.length ; i++){
                 cuerpoMensaje += linea[i] + " ";
             }
-            var currentDiv = document.getElementById("area");
-            const msgCont = document.createElement("div");
-            msgCont.id = "msgcont";
-            const cuerpoMsg = document.createElement("p");
-            cuerpoMsg.textContent = cuerpoMensaje   ;
-            msgCont.append(cuerpoMsg);
-            currentDiv.append(msgCont);
+            const currentDiv = document.getElementsByClassName("cuerpocont")[document.getElementsByClassName("cuerpocont").length - 1];
+            var cuerpoMsg = document.createElement("p");
+            cuerpoMsg.textContent = cuerpoMensaje;
+            currentDiv.insertAdjacentElement("afterend",cuerpoMsg);
             return;
         }
 
@@ -141,6 +138,7 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     const msgText = document.createElement("p");
     msgText.textContent = cuerpoMensaje;
     msgText.id = "cuerpo";
+    msgText.className = "cuerpocont";
 
     // Crea el párrafo de la fecha
     const fechaTexto = document.createElement("p");
