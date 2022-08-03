@@ -2,7 +2,7 @@ window.onload = function(){
 
     window.matchMedia('(prefers-color-scheme: dark)').matches ? switchNi() : switchDay();
 
-    if(navigator.language == 'es' || navigator.language == 'es-419' || navigator.language == 'es-ES'){
+    if(navigator.language == 'es' || navigator.language == 'es-419' || navigator.language == 'es-ES' || navigator.language == 'es-US'){
         switchEsp();
     }
     else{
