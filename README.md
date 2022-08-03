@@ -27,9 +27,4 @@ https://davidquintr.github.io/whatsapp-reader.github.io/
     <br>
     <img src="assets/images/davidquint.png" width="96">
     <p>Made by DavidQuint</p>
-    <style>
-        img{
-            border-radius:25%;
-        }
-    </style>
 </div>
