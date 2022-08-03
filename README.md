@@ -1,3 +1,7 @@
+<div align = "center">
+  <img src="assets/images/iconreader.png" alt = "wareader" width ="128px">
+<div>
+
 **Now with english and light mode support**
 # WhatsApp Reader
 Interpreat the exported chat from WhatsApp to something readable.
@@ -11,12 +15,21 @@ and upload or send to a chat to save the chat.
 
 # Function
 Only need the `.txt` of the chat and upload in the entry of the site.
-after that, you can see all the chat than WhatsApp.
+after that, you can see all the chat like WhatsApp style.
 
 # Issues 
-- Laggy
+- Nothing for now
 
 # Preview
 https://davidquintr.github.io/whatsapp-reader.github.io/
 
-### Made by DavidQuint
+<div align="center">
+    <br>
+    <img src="assets/images/davidquint.png" width="96">
+    <p>Made by DavidQuint</p>
+    <style>
+        img{
+            border-radius:25%;
+        }
+    </style>
+</div>
