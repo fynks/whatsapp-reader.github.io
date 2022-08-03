@@ -234,3 +234,32 @@ function checks(linea,fecha){
     }
     return flag;
 }
+
+function whatsapptwo(){
+    
+    if(msgChar != 0)
+        return;
+
+    document.getElementById("logoapp").src = "assets/images/whatsapp.png";
+    document.getElementById("wareader").textContent = "WhatsApp 2";
+
+    document.getElementById("titulo").textContent = "WhatsApp 2 Revealed";
+    document.getElementById("subtitulo").textContent = "Con el carro de WhatsApp";
+    for(element of document.getElementsByClassName("parraf")) element.textContent = "";
+    document.getElementById("entrada").remove();
+    document.getElementById("area").remove();
+    document.getElementById("parraf").remove();
+    document.getElementById("desc").textContent =  "omg, carro do whatsapp";
+
+    document.getElementById("eng").disabled = true;
+    document.getElementById("esp").disabled = true;
+
+
+    let carrodiv = document.createElement("div");
+    carrodiv.id = "carrowasa";
+
+    let carro = document.createElement("img");
+    carro.src = "assets/images/carro.png";
+    carrodiv.appendChild(carro);
+    document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
+}

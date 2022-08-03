@@ -76,5 +76,4 @@ function switchEng(){
             document.getElementById("cuerpo").textContent = "This is the text body";
         }
     }catch(error){};
-
 }
