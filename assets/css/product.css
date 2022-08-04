@@ -125,22 +125,6 @@
     color: #94b8f6;
 }
 
-#msgcont{
-    border-radius: 10px;
-    background-color: #202C33;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.325);
-    margin-bottom: 10px;
-    margin-top: -10px;
-}
-
-#msgcont p{
-    color: #fff;
-    margin: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    overflow-wrap: break-word;
-}
-
 #subtitulo{
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -279,19 +263,6 @@
         margin-right: 20px;
         margin-bottom: 15px;
         border-radius: 30px;
-    }
-
-    #msgcont{
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 15px;
-        border-radius: 15px;
-        margin-top: -15px;
-    }
-
-    #msgcont p{
-        font-size: 20px;
-        padding-left: 10px;
     }
 
     #dia{

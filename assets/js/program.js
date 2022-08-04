@@ -14,7 +14,7 @@ let advertencias = ["Los mensajes y","Cambió tu código","creó el grupo", "añ
                     "salió del grupo", "Eliminaste a", "Añadiste a", "Se añadió a", "cambió la descripción",
                     "inició una llamada", "Cambiaste el", "admin. del grupo", "cambió los ajustes",
                     "se unió usando el enlace", "cambió el asunto", "cambió a","eliminó a","Creaste el grupo",
-                    "te añadió."]
+                    "te añadió."];
 let warnings = ["Messages and calls are","left","You're no longer","changed to", "You removed","Your security code with",
                 "added","changed this group's","created group","Your'e now an admin","You created group","was added",
                 "changed the group description","joined using this group's","changed the subject","changed the group",
@@ -65,47 +65,48 @@ function abrirArchivo(evento){
 
 function DividirMensaje(linea){
     let brecha =  0;
+    let originLin = linea;
     linea = linea.split(' ');
     let usuario = linea[4];
     let cuerpoMensaje = "";
     let fecha = linea[0];
     let hora = linea[1] + " " + linea[2];
-
+    var posiciones = 0;
+    var validRegex = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
     try{
+        originLin = originLin.replace(">","&gt;");
+        originLin = originLin.replace("<","&lt;");
+
         if(checks(linea,fecha))
             return;
-            console.log(linea.join(' ') + " - " + fecha + " / ");
-            console.log(fecha.split('/').length + " " + fecha.length);
-            
-        if(fecha.split('/').length < 3){
-            for(var i = 0 ; i < linea.length ; i++){
-                cuerpoMensaje += linea[i] + " ";
-            }
-            const currentDiv = document.getElementsByClassName("cuerpocont")[document.getElementsByClassName("cuerpocont").length - 1];
-            var cuerpoMsg = document.createElement("p");
-            cuerpoMsg.textContent = cuerpoMensaje;
-            currentDiv.insertAdjacentElement("afterend",cuerpoMsg);
+
+        if(eng) fecha = fecha.substring(0,fecha.length - 1);
+
+        if(!validRegex.test(fecha)){
+            separateLine(cuerpoMensaje,originLin)
             return;
         }
 
         if(usuario[usuario.length - 1] == ":"){
             brecha = 5;
+            for(var i = 0 ; i < brecha ; i++){
+                posiciones += linea[i].length;
+            }
         } else{
             for(var i = 4; i < linea.length ; i++){
-                let temp = linea[i];
-                if(temp[temp.length - 1] == ":"){
+                if(linea[i].indexOf(':') != -1){
                     brecha = i + 1;
-                    for(var i = 5 ; i < brecha ; i++){
-                        usuario += " " + linea[i];
+                    for(var i = 0 ; i < brecha ; i++){
+                        if(i >= 5)
+                            usuario += " " + linea[i];
+                        posiciones += linea[i].length;
                     }
                     break;
                 }
             }
         }
 
-        for(var i = brecha; i < linea.length ; i++){
-            cuerpoMensaje += linea[i] + " ";
-        }
+        cuerpoMensaje = originLin.substring((posiciones+brecha),originLin.length).replace(/ /g,"&nbsp");
 
         if(!usuarios.includes(usuario)){
             usuarios.push(usuario);
@@ -136,7 +137,8 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
 
     // Crea el párrafo del mensaje
     const msgText = document.createElement("p");
-    msgText.textContent = cuerpoMensaje;
+
+    msgText.innerHTML = cuerpoMensaje;
     msgText.id = "cuerpo";
     msgText.className = "cuerpocont";
 
@@ -235,8 +237,14 @@ function checks(linea,fecha){
     return flag;
 }
 
+function separateLine(cuerpoMensaje,originLin){
+    cuerpoMensaje = originLin.replace(/ /g,"&nbsp");
+    const currentDiv = document.getElementsByClassName("cuerpocont")[document.getElementsByClassName("cuerpocont").length - 1];
+    currentDiv.innerHTML += "<br>" + cuerpoMensaje;
+    return;
+}
+
 function whatsapptwo(){
-    
     if(msgChar != 0)
         return;
 

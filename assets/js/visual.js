@@ -25,7 +25,6 @@ function switchNi(){
 }
 
 function switchDay(){
-    console.log("day");
     nmode = false;
     let buttonDay = document.getElementById("day");
     if(buttonDay.style.backgroundColor == "rgb(24, 44, 57)")
