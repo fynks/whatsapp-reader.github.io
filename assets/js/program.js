@@ -1,7 +1,7 @@
 window.addEventListener('load',() =>{
     document.getElementById('archivo').addEventListener('change',abrirArchivo)
 })
-
+var lineas = [];
 let fechaAnt;
 let usuarios =  [];
 let userColor = [];
@@ -24,7 +24,6 @@ let warnings = ["Messages and calls are","left","You're no longer","changed to",
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
     let reader = new FileReader();
-    var lineas = "";
 
     if(archivo){
         if(archivo.name.substring(archivo.name.length - 3,archivo.name.length) != "txt"){
@@ -48,11 +47,11 @@ function abrirArchivo(evento){
             else
                 textFinal = "Has been loaded " + msgChar + " messages";
 
-            document.getElementById("parraf").textContent = textFinal;  
+            lineas.forEach(function(linea){
+                DividirMensaje(linea);
+            })
 
-            for(var i = 0; lineas.length; i++){
-                DividirMensaje(lineas[i]);
-            }
+            document.getElementById("parraf").textContent = textFinal;  
         };
         reader.readAsText(archivo);
     } else {
@@ -173,7 +172,7 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     div.appendChild(msgText);
     div.appendChild(fechaTexto);
     currentDiv.append(div);
-
+    currentDiv.append(document.createElement("br"));
     fechaAnt = linea[0];
 }
 

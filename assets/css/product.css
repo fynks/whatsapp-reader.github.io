@@ -6,6 +6,8 @@
     justify-self: right;
 }
 
+
+
 #reloader{
     margin: 0;
     padding: 0;
@@ -60,8 +62,8 @@
     background-image: url("../images/background.png");
     background-repeat: repeat;
     background-size: 50%;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 5%;
+    padding-right: 5%;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 25px;
@@ -94,7 +96,9 @@
 }
 
 #msg{
-    border-radius: 25px;
+    justify-self: right;
+    max-width: 65%;
+    border-radius:15px;
     background-color: #202C33;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
     margin-bottom: 10px;
@@ -109,8 +113,8 @@
 }
 
 #msg :last-child{
-    color: #A6ABAD;
     text-align: right;
+    color: #A6ABAD;
     padding: 0;
     border: 0;
     margin: 1px;
@@ -135,10 +139,11 @@
     background-color: #0B141A;
     border-radius: 0;
     text-align: center;
+    transition: all 0.2s;
 }
 
-#entrada input{
-    color: white;
+#configs{
+    display: none;
 }
 
 #carrowasa{
@@ -194,7 +199,7 @@
     overflow-wrap: break-word;
 }
 
-#entrada input{
+#archivo{
     display: none;
 }
 
@@ -256,13 +261,6 @@
         margin-right: 30px;
         margin-left: 30px;
         font-size: 55px;
-    }
-
-    #msg{
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 15px;
-        border-radius: 30px;
     }
 
     #dia{
