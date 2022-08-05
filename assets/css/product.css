@@ -6,6 +6,8 @@
     justify-self: right;
 }
 
+
+
 #reloader{
     margin: 0;
     padding: 0;
@@ -60,19 +62,38 @@
     background-image: url("../images/background.png");
     background-repeat: repeat;
     background-size: 50%;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 5%;
+    padding-right: 5%;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 25px;
 }
 
-#dia{
-    z-index: 10;
-    top:85px;
-    margin-left: 25%;
-    margin-right: 25%;
+#containall{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#containall p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.date{
     position: sticky;
+    z-index: 10;
+    top:80px;
+}
+
+#dia{
+    display: inline-block;
+    align-content: center;
+    justify-content:center;
     color: #fff;
     border-radius: 20px;
     text-align: center;
@@ -94,35 +115,71 @@
 }
 
 #msg{
-    border-radius: 25px;
-    background-color: #202C33;
+    padding-left: 15px;
+    display: inline-block;
+    max-width: 65%;
+    border-radius:15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
     margin-bottom: 10px;
 }
 
+#containmsg{
+    display: flex;    
+}
+
+.oth{
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.env{
+    justify-content: flex-end;
+}
+
+#containmsg{
+    padding: 2px;
+}
+
 #msg p{
     color: #fff;
-    margin: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     overflow-wrap: break-word;
 }
 
-#msg :last-child{
-    color: #A6ABAD;
-    text-align: right;
-    padding: 0;
-    border: 0;
-    margin: 1px;
-    margin-right: 5px;
-}
-
 #msg :first-child{
-    margin-top: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 15px;
     color: #94b8f6;
+}
+
+#msg :last-child{
+    display: block;
+    margin: 0;
+    margin-top: 5px;
+    text-align: right;
+    font-size: 12px;
+    color: #A6ABAD;
+    border: 0;
+}
+
+.env div :first-child{
+    display: none;
+}
+
+.env .oth div :first-child{
+    display: block;
+}
+
+.oth div{
+    background-color: #202C33;
+}
+
+.env div{
+    background-color: #005C4B;
 }
 
 #subtitulo{
@@ -135,10 +192,6 @@
     background-color: #0B141A;
     border-radius: 0;
     text-align: center;
-}
-
-#entrada input{
-    color: white;
 }
 
 #carrowasa{
@@ -194,7 +247,7 @@
     overflow-wrap: break-word;
 }
 
-#entrada input{
+#archivo{
     display: none;
 }
 
@@ -216,6 +269,26 @@
 
 #entrada label:active{
     background-color: #76a872;
+}
+
+#txtusr{
+    margin-top: 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#optionpov{
+    text-align:center;
+    color: #000;
+    cursor: pointer;
+    min-width: 150px;
+    min-height: 25px;
+    border-radius: 10px;
+    background-color: #B4FFAE;
+}
+
+#configs{
+    display: none;
 }
 
 @media screen and (max-width: 980px){
@@ -258,17 +331,8 @@
         font-size: 55px;
     }
 
-    #msg{
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 15px;
-        border-radius: 30px;
-    }
-
     #dia{
         top: 130px;
-        margin-left: 20%;
-        margin-right: 20%;
         font-size: 15px;
     }
 

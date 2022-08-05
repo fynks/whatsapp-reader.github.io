@@ -35,9 +35,14 @@ body{
     color: #000;
 }
 
-#msg{
+.oth div{
     background-color: #fff;
 }
+
+.env div{
+    background-color: #D9FDD3;
+}
+
 
 #msg p{
     color: #000;
@@ -74,4 +79,15 @@ body{
 
 #msg :first-child{
     filter: brightness(90%);
+}
+
+#txtusr{
+    margin-top: 0;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+#optionpov{
+    color: #fff;
+    background-color: #008069;
 }

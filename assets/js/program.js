@@ -1,7 +1,9 @@
+
+
 window.addEventListener('load',() =>{
     document.getElementById('archivo').addEventListener('change',abrirArchivo)
 })
-
+var lineas = [];
 let fechaAnt;
 let usuarios =  [];
 let userColor = [];
@@ -20,11 +22,16 @@ let warnings = ["Messages and calls are","left","You're no longer","changed to",
                 "changed the group description","joined using this group's","changed the subject","changed the group",
                 "You're now an admin","started a call"];
 
+var activeUser = document.getElementById("optionpov");
+
+activeUser.addEventListener("click",function(){
+    var user = usuarios[activeUser.selectedIndex].substring(0,usuarios[activeUser.selectedIndex].length - 1).split(' ').join('');
+    elegirUsr(user);
+});
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
     let reader = new FileReader();
-    var lineas = "";
 
     if(archivo){
         if(archivo.name.substring(archivo.name.length - 3,archivo.name.length) != "txt"){
@@ -34,7 +41,9 @@ function abrirArchivo(evento){
         document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
-        document.getElementById("entrada").remove();
+        document.getElementById("labArch").remove();
+        document.getElementById("configs").style.display = "block";
+
 
         reader.onload = function(e){
             let contenido = e.target.result;
@@ -48,11 +57,11 @@ function abrirArchivo(evento){
             else
                 textFinal = "Has been loaded " + msgChar + " messages";
 
-            document.getElementById("parraf").textContent = textFinal;  
+            lineas.forEach(function(linea){
+                DividirMensaje(linea);
+            })
 
-            for(var i = 0; lineas.length; i++){
-                DividirMensaje(lineas[i]);
-            }
+            document.getElementById("parraf").textContent = textFinal;  
         };
         reader.readAsText(archivo);
     } else {
@@ -112,17 +121,19 @@ function DividirMensaje(linea){
             usuarios.push(usuario);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
             listUsers();
+            createUserOption(usuario.substring(0,usuario.length - 1));
         }
 
         AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
     }catch(error){};
 }
 
-function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
+function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){   
     // Crea el div padre
     const div = document.createElement("div");
     div.textContent = "";
     div.id = "msg";
+    div.className = usuario.substring(0,usuario.length-1).split(' ').join('') +"back";
 
     // Crea el parrafo para el usuario
     const usrText = document.createElement("p");
@@ -152,6 +163,9 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
 
     // Crea el párrafo del día si se necesita
     if(fechaAnt != linea[0]){
+        const alldiv = document.createElement("div");
+        alldiv.id = "containall";
+        alldiv.className = "date";
         const data = document.createElement("p");
 
         if(!eng){
@@ -166,14 +180,17 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
             data.textContent = months[linea[0].split('/')[0] - 1] +" "+linea[0].split('/')[1] +", " + year;
         }
         data.id = "dia";
-        currentDiv.append(data);
+
+        alldiv.append(data);
+        currentDiv.append(alldiv);
     }
 
-    div.appendChild(usrText);
-    div.appendChild(msgText);
-    div.appendChild(fechaTexto);
-    currentDiv.append(div);
-
+    var contain = document.createElement("div");
+    contain.id = "containmsg";
+    contain.className = "oth " + usuario.substring(0,usuario.length-1).split(' ').join('');
+    div.append(usrText,msgText,fechaTexto);
+    contain.append(div);
+    currentDiv.append(contain);  
     fechaAnt = linea[0];
 }
 
@@ -184,11 +201,16 @@ function advertMsg(linea){
         advert += " " + linea[i];
     }
 
+    
+    const alldiv = document.createElement("div");
+    alldiv.id = "containall";
+
     const warn = document.createElement("p");
     warn.textContent = advert;
     warn.id = "warn";
     var currentDiv = document.getElementById("area");
-    currentDiv.append(warn);
+    alldiv.append(warn);
+    currentDiv.append(alldiv);
 }
 
 function listUsers(){
@@ -271,3 +293,21 @@ function whatsapptwo(){
     carrodiv.appendChild(carro);
     document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
 }
+
+function createUserOption(username){
+    const obj = document.getElementById("optionpov");
+    var option = document.createElement("option");
+    option.value = username;
+    option.textContent = username;
+    obj.append(option);
+}
+
+function elegirUsr(username){
+    let allMsg = document.getElementsByClassName("oth");
+    Array.from(allMsg).forEach(msg => {
+        if(msg.className.includes("env"))
+            msg.className = msg.className.substring(0,msg.className.length - 3);
+        if(msg.className.includes(username))
+            msg.className += " env";
+    })
+}   
