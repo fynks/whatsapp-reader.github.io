@@ -153,6 +153,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #94b8f6;
+    overflow-wrap: normal;
 }
 
 #msg :last-child{
@@ -162,6 +163,7 @@
     text-align: right;
     color: #A6ABAD;
     border: 0;
+    overflow-wrap: normal;
 }
 
 .env div :first-child{
@@ -290,6 +292,10 @@
 }
 
 @media screen and (max-width: 980px){
+
+    #msg{
+        min-width: 20%;
+    }
 
     #reload{
         height: 95px;
