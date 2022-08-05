@@ -146,14 +146,12 @@
     margin-top: 5px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    overflow-wrap: break-word;
 }
 
 #msg :first-child{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #94b8f6;
-    overflow-wrap: normal;
 }
 
 #msg :last-child{
@@ -163,7 +161,6 @@
     text-align: right;
     color: #A6ABAD;
     border: 0;
-    overflow-wrap: normal;
 }
 
 .env div :first-child{
@@ -277,6 +274,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+#cuerpo{
+    overflow-wrap: break-word;
+}
+
 #optionpov{
     text-align:center;
     color: #000;
@@ -293,8 +294,8 @@
 
 @media screen and (max-width: 980px){
 
-    #msg{
-        min-width: 20%;
+    .date{
+        top:115px;
     }
 
     #reload{
@@ -336,7 +337,6 @@
     }
 
     #dia{
-        top: 130px;
         font-size: 24px;
     }
 
@@ -362,6 +362,12 @@
 
     #msg p{
         font-size: 24px;
+    }
+
+    #optionpov{
+        font-size: 20px;
+        min-width: 250px;
+        min-height: 50px;
     }
     
 }
