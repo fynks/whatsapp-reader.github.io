@@ -33,7 +33,8 @@ function abrirArchivo(evento){
         document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
-        document.getElementById("entrada").remove();
+        document.getElementById("labArch").remove();
+
 
         reader.onload = function(e){
             let contenido = e.target.result;
@@ -111,17 +112,19 @@ function DividirMensaje(linea){
             usuarios.push(usuario);
             userColor.push("hsl(" + Math.round((Math.random() * 359)) + ", 64%, 64%)");
             listUsers();
+            createUserOption(usuario.substring(0,usuario.length - 1));
         }
 
         AdicionMensajes(usuario,cuerpoMensaje,hora,linea);
     }catch(error){};
 }
 
-function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
+function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){   
     // Crea el div padre
     const div = document.createElement("div");
     div.textContent = "";
     div.id = "msg";
+    div.className = usuario.substring(0,usuario.length-1).split(' ').join('') +"back";
 
     // Crea el parrafo para el usuario
     const usrText = document.createElement("p");
@@ -168,11 +171,12 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
         currentDiv.append(data);
     }
 
-    div.appendChild(usrText);
-    div.appendChild(msgText);
-    div.appendChild(fechaTexto);
-    currentDiv.append(div);
-    currentDiv.append(document.createElement("br"));
+    var contain = document.createElement("div");
+    contain.id = "containmsg";
+    contain.className = "oth " + usuario.substring(0,usuario.length-1).split(' ').join('');
+    div.append(usrText,msgText,fechaTexto);
+    contain.append(div);
+    currentDiv.append(contain);  
     fechaAnt = linea[0];
 }
 
@@ -269,4 +273,12 @@ function whatsapptwo(){
     carro.src = "assets/images/carro.png";
     carrodiv.appendChild(carro);
     document.getElementById("subtitulo").insertAdjacentElement("afterend",carrodiv);
+}
+
+function createUserOption(username){
+    const obj = document.getElementById("optionpov");
+    var option = document.createElement("option");
+    option.value = username;
+    option.textContent = username;
+    obj.append(option);
 }
