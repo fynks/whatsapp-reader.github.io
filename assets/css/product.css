@@ -69,12 +69,31 @@
     margin-bottom: 25px;
 }
 
-#dia{
-    z-index: 10;
-    top:85px;
-    margin-left: 25%;
-    margin-right: 25%;
+#containall{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#containall p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.date{
     position: sticky;
+    z-index: 10;
+    top:80px;
+}
+
+#dia{
+    display: inline-block;
+    align-content: center;
+    justify-content:center;
     color: #fff;
     border-radius: 20px;
     text-align: center;
@@ -98,10 +117,8 @@
 #msg{
     padding-left: 15px;
     display: inline-block;
-    min-width: 20%;
     max-width: 65%;
     border-radius:15px;
-    background-color: #202C33;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
     margin-bottom: 10px;
 }
@@ -122,8 +139,8 @@
 #containmsg{
     padding: 2px;
 }
+
 #msg p{
-    display: inline;
     color: #fff;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -133,7 +150,6 @@
 }
 
 #msg :first-child{
-    display: block;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 15px;
@@ -141,12 +157,29 @@
 }
 
 #msg :last-child{
-    display: inline-block;
-    margin-left: 10px;
+    display: block;
+    margin: 0;
+    margin-top: 5px;
     text-align: right;
     font-size: 12px;
     color: #A6ABAD;
     border: 0;
+}
+
+.env div :first-child{
+    display: none;
+}
+
+.env .oth div :first-child{
+    display: block;
+}
+
+.oth div{
+    background-color: #202C33;
+}
+
+.env div{
+    background-color: #005C4B;
 }
 
 #subtitulo{
@@ -159,7 +192,6 @@
     background-color: #0B141A;
     border-radius: 0;
     text-align: center;
-    transition: all 0.2s;
 }
 
 #carrowasa{
@@ -239,6 +271,26 @@
     background-color: #76a872;
 }
 
+#txtusr{
+    margin-top: 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#optionpov{
+    text-align:center;
+    color: #000;
+    cursor: pointer;
+    min-width: 150px;
+    min-height: 25px;
+    border-radius: 10px;
+    background-color: #B4FFAE;
+}
+
+#configs{
+    display: none;
+}
+
 @media screen and (max-width: 980px){
 
     #reload{
@@ -281,8 +333,6 @@
 
     #dia{
         top: 130px;
-        margin-left: 20%;
-        margin-right: 20%;
         font-size: 15px;
     }
 

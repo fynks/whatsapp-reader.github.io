@@ -1,6 +1,4 @@
-<div align = "center">
   <img src="assets/images/iconreader.png" alt = "wareader" width ="128px">
-<div>
 
 **Now with english and light mode support**
 # WhatsApp Reader

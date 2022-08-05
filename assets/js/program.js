@@ -1,3 +1,5 @@
+
+
 window.addEventListener('load',() =>{
     document.getElementById('archivo').addEventListener('change',abrirArchivo)
 })
@@ -20,6 +22,12 @@ let warnings = ["Messages and calls are","left","You're no longer","changed to",
                 "changed the group description","joined using this group's","changed the subject","changed the group",
                 "You're now an admin","started a call"];
 
+var activeUser = document.getElementById("optionpov");
+
+activeUser.addEventListener("click",function(){
+    var user = usuarios[activeUser.selectedIndex].substring(0,usuarios[activeUser.selectedIndex].length - 1).split(' ').join('');
+    elegirUsr(user);
+});
 
 function abrirArchivo(evento){
     let archivo = evento.target.files[0];
@@ -34,6 +42,7 @@ function abrirArchivo(evento){
         document.getElementById("dia").remove();
         document.getElementById("msg").remove();
         document.getElementById("labArch").remove();
+        document.getElementById("configs").style.display = "block";
 
 
         reader.onload = function(e){
@@ -154,6 +163,9 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
 
     // Crea el párrafo del día si se necesita
     if(fechaAnt != linea[0]){
+        const alldiv = document.createElement("div");
+        alldiv.id = "containall";
+        alldiv.className = "date";
         const data = document.createElement("p");
 
         if(!eng){
@@ -168,7 +180,9 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
             data.textContent = months[linea[0].split('/')[0] - 1] +" "+linea[0].split('/')[1] +", " + year;
         }
         data.id = "dia";
-        currentDiv.append(data);
+
+        alldiv.append(data);
+        currentDiv.append(alldiv);
     }
 
     var contain = document.createElement("div");
@@ -187,11 +201,16 @@ function advertMsg(linea){
         advert += " " + linea[i];
     }
 
+    
+    const alldiv = document.createElement("div");
+    alldiv.id = "containall";
+
     const warn = document.createElement("p");
     warn.textContent = advert;
     warn.id = "warn";
     var currentDiv = document.getElementById("area");
-    currentDiv.append(warn);
+    alldiv.append(warn);
+    currentDiv.append(alldiv);
 }
 
 function listUsers(){
@@ -282,3 +301,13 @@ function createUserOption(username){
     option.textContent = username;
     obj.append(option);
 }
+
+function elegirUsr(username){
+    let allMsg = document.getElementsByClassName("oth");
+    Array.from(allMsg).forEach(msg => {
+        if(msg.className.includes("env"))
+            msg.className = msg.className.substring(0,msg.className.length - 3);
+        if(msg.className.includes(username))
+            msg.className += " env";
+    })
+}   

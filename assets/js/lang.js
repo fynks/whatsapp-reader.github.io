@@ -27,6 +27,7 @@ function switchEsp(){
             document.getElementById("parraf").textContent  = "Vista previa:";
         
         document.getElementById("userParraf").textContent = "Usuarios en la conversación";
+        document.getElementById("txtusr").textContent = "Usuario activo";
 
         if(msgChar == 0){
             document.getElementById("subtitulo").textContent = "Selecciona el archivo para otorgar el formato";
@@ -61,6 +62,7 @@ function switchEng(){
 
         document.getElementById("txtCod").textContent = "Source code";
         document.getElementById("txtFinal").textContent = "Developed for GitHub - 2022";
+        document.getElementById("txtusr").textContent = "Active user";
 
         if(document.getElementById("parraf").textContent.includes("Se han cargado"))
             document.getElementById("parraf").textContent = "Has been loaded " + msgChar + " messages";
