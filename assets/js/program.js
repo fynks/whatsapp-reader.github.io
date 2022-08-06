@@ -16,7 +16,7 @@ let advertencias = ["Los mensajes y","Cambió tu código","creó el grupo", "añ
                     "salió del grupo", "Eliminaste a", "Añadiste a", "Se añadió a", "cambió la descripción",
                     "inició una llamada", "Cambiaste el", "admin. del grupo", "cambió los ajustes",
                     "se unió usando el enlace", "cambió el asunto", "cambió a","eliminó a","Creaste el grupo",
-                    "te añadió.","Iniciaste una llamada"];
+                    "te añadió.","Iniciaste una llamada","El código de seguridad"];
 let warnings = ["Messages and calls are","left","You're no longer","changed to", "You removed","Your security code with",
                 "added","changed this group's","created group","Your'e now an admin","You created group","was added",
                 "changed the group description","joined using this group's","changed the subject","changed the group",
