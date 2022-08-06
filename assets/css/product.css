@@ -314,3 +314,14 @@
         font-size: 30px;
     }
 } 
+
+@media screen and (min-width: 1400px){
+    #msg p{
+        font-size: 14px;
+    }
+
+    #area{
+        padding-left: 250px;
+        padding-right: 250px;
+    }
+}

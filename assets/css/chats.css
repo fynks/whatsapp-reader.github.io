@@ -6,7 +6,7 @@
 
 #msg{
     opacity: 1;
-    max-width: 65%;
+    max-width: 70%;
     padding-left: 15px;
     border-radius:15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
@@ -40,7 +40,7 @@
 }
 
 #cuerpo{
-    display: block;
+    display: block;     
 }
 
 #msg :last-child{
