@@ -24,9 +24,10 @@ let warnings = ["Messages and calls are","left","You're no longer","changed to",
 
 var activeUser = document.getElementById("optionpov");
 
-activeUser.addEventListener("click",function(){
+activeUser.addEventListener("change",function(){
     var user = usuarios[activeUser.selectedIndex].substring(0,usuarios[activeUser.selectedIndex].length - 1).split(' ').join('');
     elegirUsr(user);
+
 });
 
 function abrirArchivo(evento){
@@ -60,8 +61,9 @@ function abrirArchivo(evento){
             lineas.forEach(function(linea){
                 DividirMensaje(linea);
             })
-            document.getElementById("parraf").textContent = textFinal;  
-            elegirUsr(usuarios[0].substring(0,usuarios[0].length - 1));
+            document.getElementById("parraf").textContent = textFinal;
+            elegirUsr(usuarios[0].substring(0,usuarios[0].length - 1).split(' ').join(''));
+  
         };
         reader.readAsText(archivo);
     } else {
@@ -133,7 +135,6 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     const div = document.createElement("div");
     div.textContent = "";
     div.id = "msg";
-    div.className = usuario.substring(0,usuario.length-1).split(' ').join('') +"back";
 
     // Crea el parrafo para el usuario
     const usrText = document.createElement("p");
@@ -304,6 +305,10 @@ function createUserOption(username){
 }
 
 function elegirUsr(username){
+    console.log(username);
+    document.getElementById("chatstyle").href = "";
+    document.getElementById("area").style.opacity = "0";
+    document.getElementById("chatstyle").href = "assets/css/chats.css";
     let allMsg = document.getElementsByClassName("oth");
     Array.from(allMsg).forEach(msg => {
         if(msg.className.includes("env"))
@@ -311,4 +316,8 @@ function elegirUsr(username){
         if(msg.className.includes(username))
             msg.className += " env";
     })
+
+    setTimeout(function(){
+        document.getElementById("area").style.opacity = "1";
+    },1000);
 }   

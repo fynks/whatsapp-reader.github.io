@@ -67,6 +67,7 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 25px;
+    transition: opacity 0.2s;
 }
 
 #containall{
@@ -75,6 +76,14 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
+}
+
+#cuerpo{
+    display: none;
+}
+
+.cuerpocont{
+    overflow-wrap: break-word;
 }
 
 #containall p{
@@ -102,6 +111,10 @@
     background-color: #1c272d;
 }
 
+#msg{
+    opacity: 0;
+}
+
 #warn{
     color: #fff;
     border-radius: 7px;
@@ -110,72 +123,6 @@
     font-weight: 400;
     background-color: #202C33;
     opacity: 0.8;
-}
-
-#containmsg{
-    display:flex;    
-}
-
-#msg{
-    max-width: 65%;
-    padding-left: 15px;
-    border-radius:15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
-    margin-bottom: 10px;
-}
-
-.oth{
-    align-content: center;
-    justify-content: flex-start;
-}
-
-.env{
-    justify-content: flex-end;
-}
-
-#containmsg{
-    padding: 2px;
-}
-
-#msg p{
-    color: #fff;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-#msg :first-child{
-    font-weight: 500;
-    color: #94b8f6;
-}
-
-#cuerpo{
-    overflow-wrap: break-word;
-}
-
-#msg :last-child{
-    margin: 0;
-    margin-top: 5px;
-    text-align: right;
-    color: #A6ABAD;
-    border: 0;
-}
-
-.oth div :first-child{
-    display: block;
-}
-
-.env div :first-child{
-    display: none;
-}
-
-.oth div{
-    background-color: #202C33;
-}
-
-.env div{
-    background-color: #005C4B;
 }
 
 #subtitulo{
@@ -289,6 +236,14 @@
 
 @media screen and (max-width: 980px){
 
+    #dia{
+        font-size: 20px;
+    }
+
+    #warn{
+        font-size: 20px;
+    }
+
     .date{
         top:125px;
     }
@@ -349,4 +304,13 @@
         min-width: 250px;
         min-height: 50px;
     }
-}
+
+    #area{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #msg p{
+        font-size: 24px;
+    }
+} 
