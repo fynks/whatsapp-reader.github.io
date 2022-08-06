@@ -114,17 +114,16 @@
     opacity: 0.8;
 }
 
+#containmsg{
+    display:flex;    
+}
+
 #msg{
-    padding-left: 15px;
-    display: inline-block;
     max-width: 65%;
+    padding-left: 15px;
     border-radius:15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
     margin-bottom: 10px;
-}
-
-#containmsg{
-    display: flex;    
 }
 
 .oth{
@@ -149,13 +148,15 @@
 }
 
 #msg :first-child{
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #94b8f6;
 }
 
+#cuerpo{
+    overflow-wrap: break-word;
+}
+
 #msg :last-child{
-    display: block;
     margin: 0;
     margin-top: 5px;
     text-align: right;
@@ -163,12 +164,12 @@
     border: 0;
 }
 
-.env div :first-child{
-    display: none;
+.oth div :first-child{
+    display: block;
 }
 
-.env .oth div :first-child{
-    display: block;
+.env div :first-child{
+    display: none;
 }
 
 .oth div{
@@ -274,10 +275,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-#cuerpo{
-    overflow-wrap: break-word;
-}
-
 #optionpov{
     text-align:center;
     color: #000;
@@ -295,7 +292,7 @@
 @media screen and (max-width: 980px){
 
     .date{
-        top:115px;
+        top:125px;
     }
 
     #reload{
@@ -336,10 +333,6 @@
         font-size: 55px;
     }
 
-    #dia{
-        font-size: 24px;
-    }
-
     #logoapp{
         width: 75px;
     }
@@ -360,14 +353,9 @@
         background-size: 6%;
     }
 
-    #msg p{
-        font-size: 24px;
-    }
-
     #optionpov{
         font-size: 20px;
         min-width: 250px;
         min-height: 50px;
     }
-    
 }

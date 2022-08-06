@@ -60,8 +60,8 @@ function abrirArchivo(evento){
             lineas.forEach(function(linea){
                 DividirMensaje(linea);
             })
-
             document.getElementById("parraf").textContent = textFinal;  
+            elegirUsr(usuarios[0].substring(0,usuarios[0].length - 1));
         };
         reader.readAsText(archivo);
     } else {
@@ -188,6 +188,7 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     var contain = document.createElement("div");
     contain.id = "containmsg";
     contain.className = "oth " + usuario.substring(0,usuario.length-1).split(' ').join('');
+    contain.style.display = "flex";
     div.append(usrText,msgText,fechaTexto);
     contain.append(div);
     currentDiv.append(contain);  
