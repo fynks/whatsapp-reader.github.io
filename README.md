@@ -5,11 +5,7 @@
 Interpreat the exported chat from WhatsApp to something readable.
 
 # How to export a chat?
-Yup, you need a WhatsApp account.
-
-### Steps
-Settings -> Chats -> Chat History -> Export Chat -> Select the Chat
-and upload or send to a chat to save the chat.
+You can read the [FAQ in the WA page for export a chat](https://faq.whatsapp.com/196737011380816/?helpref=uf_share).
 
 # Function
 Only need the `.txt` of the chat and upload in the entry of the site.
