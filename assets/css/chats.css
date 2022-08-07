@@ -1,16 +1,24 @@
 
 
 #containmsg{
+    padding: 0;
     display:flex;    
 }
 
+#elements{
+    background-color: transparent;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+}
+
 #msg{
-    opacity: 1;
     max-width: 70%;
+    display: inline-flex;
+    opacity: 1;
     padding-left: 15px;
     border-radius:15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
-    margin-bottom: 10px;
 }
 
 .oth{
@@ -27,9 +35,8 @@
 }
 
 #msg p{
-    color: #fff;
     margin-bottom: 5px;
-    margin-top: 5px;
+    margin-top: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
@@ -39,26 +46,32 @@
     color: #94b8f6;
 }
 
-#cuerpo{
-    display: block;     
-}
-
 #msg :last-child{
     margin: 0;
-    margin-top: 5px;
-    text-align: right;
-    color: #A6ABAD;
     border: 0;
+    display: inline-flex;
 }
 
-.oth div :first-child{
-    display: block;
+#fecha{
+    align-items: flex-end;
+    color: #A6ABAD;
+    min-width:max-content;
+    font-size: 12px;
 }
 
-.env div :first-child{
+#cuerpo{
+    color: #fff;
+}
+
+.cuerpocont{
+    text-align: left;
+    word-break: break-word;
+}
+
+.env div div p{
     display: none;
 }
-
+ 
 .oth div{
     background-color: #202C33;
 }

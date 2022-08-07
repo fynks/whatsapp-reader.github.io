@@ -5,6 +5,7 @@ window.addEventListener('load',() =>{
 })
 var lineas = [];
 let fechaAnt;
+let msgAnt;
 let usuarios =  [];
 let userColor = [];
 var eng = true;
@@ -41,7 +42,8 @@ function abrirArchivo(evento){
         }
         document.getElementById("subtitulo").textContent = archivo.name;
         document.getElementById("dia").remove();
-        document.getElementById("msg").remove();
+        document.getElementById("containall").remove();
+        document.getElementById("containmsg").remove();
         document.getElementById("labArch").remove();
         document.getElementById("configs").style.display = "block";
 
@@ -139,6 +141,7 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
     // Crea el parrafo para el usuario
     const usrText = document.createElement("p");
     usrText.textContent = usuario;
+    if(msgAnt == usuario) usrText.style.display = "none";
 
     // Le da su color asignado
     for(var i = 0 ; i < usuarios.length; i++){
@@ -186,14 +189,20 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
         currentDiv.append(alldiv);
     }
 
+    var elements = document.createElement("div");
+    elements.id = "elements";
+
     var contain = document.createElement("div");
     contain.id = "containmsg";
+
     contain.className = "oth " + usuario.substring(0,usuario.length-1).split(' ').join('');
     contain.style.display = "flex";
-    div.append(usrText,msgText,fechaTexto);
+    elements.append(usrText,msgText);
+    div.append(elements,fechaTexto);
     contain.append(div);
     currentDiv.append(contain);  
     fechaAnt = linea[0];
+    msgAnt = usuario;
 }
 
 function advertMsg(linea){

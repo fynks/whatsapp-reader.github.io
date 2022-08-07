@@ -43,11 +43,6 @@ body{
     background-color: #D9FDD3;
 }
 
-
-#msg p{
-    color: #000;
-}
-
 #warn{
     background-color: #F6F6F6;
     color: #000;
@@ -77,10 +72,6 @@ body{
     background-color: #ffffff;
 }
 
-#msg :first-child{
-    filter: brightness(90%);
-}
-
 #txtusr{
     margin-top: 0;
     color: #000;
@@ -90,4 +81,12 @@ body{
 #optionpov{
     color: #fff;
     background-color: #008069;
+}
+
+#fecha{
+    color: #959a9c;
+}
+
+#cuerpo{
+    color: #000;
 }

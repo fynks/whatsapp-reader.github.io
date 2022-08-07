@@ -70,20 +70,22 @@
     transition: opacity 0.2s;
 }
 
+#area:first-child{
+    margin-top: 0;
+}
+
 #containall{
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0;
 }
 
 #cuerpo{
     display: none;
-}
-
-.cuerpocont{
-    overflow-wrap: break-word;
 }
 
 #containall p{
@@ -235,9 +237,9 @@
 }
 
 @media screen and (max-width: 980px){
-
     #dia{
-        font-size: 20px;
+        font-size: 30px;
+        min-width: 250px;
     }
 
     #warn{
