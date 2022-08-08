@@ -315,9 +315,9 @@ function createUserOption(username){
 
 function elegirUsr(username){
     console.log(username);
-    document.getElementById("chatstyle").href = "";
-    document.getElementById("area").style.opacity = "0";
-    document.getElementById("chatstyle").href = "assets/css/chats.css";
+    // document.getElementById("chatstyle").href = "";
+    // document.getElementById("area").style.opacity = "0";
+    // document.getElementById("chatstyle").href = "assets/css/chats.css";
     let allMsg = document.getElementsByClassName("oth");
     Array.from(allMsg).forEach(msg => {
         if(msg.className.includes("env"))
@@ -326,7 +326,7 @@ function elegirUsr(username){
             msg.className += " env";
     })
 
-    setTimeout(function(){
-        document.getElementById("area").style.opacity = "1";
-    },1000);
+    // setTimeout(function(){
+    //     document.getElementById("area").style.opacity = "1";
+    // },1000);
 }   
