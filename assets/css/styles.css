@@ -1,4 +1,6 @@
-#headercont img{
+
+
+img{
     width: 50px;
 }
 
@@ -17,30 +19,357 @@ header{
     border-radius: 0;
 }
 
-#headercont span{
-    cursor:default;
+header div{
+    padding: 0.5rem;
+    display: flex;
+    align-items:center;
+    justify-content: left;
+    color: hsl(0, 0%, 100%);
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
 }
 
-#headercont div{
+header span{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+body{
+    margin: 0;
+    background-color: #172830;
+    overflow-x: hidden; 
+}
+
+div{
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#reload{
+    height: 20px;
+    width: 20px;
+    display: none;
+    justify-self: center;
+    justify-self: right;
+}
+#reloader{
+    margin: 0;
     padding: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #76a872;
+    background-image: url("https://cdn.iconscout.com/icon/free/png-256/reload-1912200-1617669.png");
+    background-size: 80%;
+    background-position: center;
+    background-repeat:no-repeat;
+    transition: transform 1s, background-color 0.2s;
 }
 
-#init{
-    display: grid;
-    padding: 0;
-    border-radius: 0;
-    background-color: #030C12;
-    grid-template-columns: repeat(2,1fr);
+#reloader:hover{
+    cursor: pointer;
+    background-color: #9cdf97;
+    transform: rotate(100deg);
 }
 
-#fmem{
-    display: grid;
+#desc{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
+#parraf{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
+#userParraf{
+    font-family: 'Roboto', sans-serif;
+    display: none;
+    text-align: center;
+    color: #fff;
+}
+
+
+#logoapp{
+    width: 20px;
+}
+
+#titulo{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
+#area{
+    background-image: url("../images/background.png");
+    background-repeat: repeat;
+    background-size: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 25px;
+    transition: opacity 0.2s;
+}
+
+#area:first-child{
+    margin-top: 0;
+}
+
+#containall{
+    display: flex;
     align-items: center;
-    justify-content:right;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0;
 }
 
-#init span{
-    font-size: 12px;
+#cuerpo{
+    display: none;
+}
+
+#containall p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.date{
+    position: sticky;
+    z-index: 10;
+    top:80px;
+}
+
+#dia{
+    display: inline-block;
+    align-content: center;
+    justify-content:center;
+    color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: #1c272d;
+}
+
+#msg{
+    opacity: 0;
+}
+
+#warn{
+    color: #fff;
+    border-radius: 7px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: #202C33;
+    opacity: 0.8;
+}
+
+#subtitulo{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #b4ffae;
+}
+
+#entrada{
+    background-color: #0B141A;
+    border-radius: 0;
+    text-align: center;
+}
+
+#carrowasa{
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+#carrowasa img{
+    max-width: 40%;
+    border-radius: 10px;
+}
+
+#contUsers{
+    display: none;  
+    background-color: #0B141A;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+}
+
+#user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b4ffae;
+}
+
+#imagen{
+    background-image: url("https://cdn2.iconfinder.com/data/icons/font-awesome/1792/user-512.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+}
+
+#user span{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+#archivo{
+    display: none;
+}
+
+#entrada label{
+    display: block;
+    padding: 10px;
+    background-color: #b4ffae;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 10px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1092/1092216.png");
+    background-repeat: no-repeat;
+    background-position:5%;
+    background-size: 5%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.1s;
+}
+
+#entrada label:active{
+    background-color: #76a872;
+}
+
+#txtusr{
+    margin-top: 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+#optionpov{
+    text-align:center;
+    color: #000;
+    cursor: pointer;
+    min-width: 150px;
+    min-height: 25px;
+    border-radius: 10px;
+    background-color: #B4FFAE;
+}
+
+#configs{
+    display: none;
+}
+
+@media screen and (max-width: 980px){
+    #dia{
+        font-size: 15px;
+        min-width: 250px;
+    }
+
+    #warn{
+        font-size: 20px;
+    }
+
+    .date{
+        top:125px;
+    }
+
+    #reload{
+        height: 95px;
+        width: 20px;
+        padding: 5px;
+    }
+
+    #reloader{
+        width: 20px;
+        height: 20px;
+    }
+
+    #contUsers{
+        margin-right: 30px;
+        margin-left: 30px;    
+    }
+
+    #user span {
+        font-size: 20px;
+    }
+
+    #imagen{
+        width: 35px;
+        height: 35px;
+    }
+
+    #titulo{
+        margin-right: 30px;
+        margin-left: 30px;
+        font-size: 20px;
+    }
+
+    #logoapp{
+        width: 20px;
+    }
+
+    #desc{
+        font-size: 12px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    #parraf{
+        font-size: 14px;
+    }
+
+    #entrada label{
+        margin-left: 20%;
+        margin-right: 20%;
+        background-size: 6%;
+    }
+
+    #optionpov{
+        font-size: 20px;
+        min-width: 250px;
+        min-height: 50px;
+    }
+
+    #area{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #msg p{
+        font-size: 15px;
+    }
+} 
+
+@media screen and (min-width: 1400px){
+    #msg p{
+        font-size: 14px;
+    }
+
+    #area{
+        padding-left: 250px;
+        padding-right: 250px;
+    }
 }
 
 #footarea{
@@ -68,25 +397,6 @@ header{
     align-content: center;
 }
 
-#footarea div img{
-    width: 75px;
-    border-radius: 50%;
-    transition: all 0.2s;
-}
-
-#footarea div img:hover{
-    opacity: 50%;
-    transform: scale(1.2);
-}
-
-#gitlogo{
-    filter: invert(100%);
-}
-
-#centralText{
-    text-align: center;
-}
-
 #final{
     border-radius: 0;
     background-color: #030C12;
@@ -98,33 +408,6 @@ header{
     font-size: 15px;
     color: white;
 }
-
-header div{
-    padding: 15px;
-    display: flex;
-    align-items:center;
-    justify-content: left;
-    color: hsl(0, 0%, 100%);
-    font-family: 'Rubik', sans-serif;
-    font-weight: 500;
-}
-
-header span{
-    margin-left: 5px;
-    font-size: 25px;
-}
-
-body{
-    margin: 0;
-    background-color: #172830;
-    overflow-x: hidden; 
-}
-
-div{
-    border-radius: 15px;
-    padding: 10px;
-}
-
 @media screen and (max-width: 980px){
 
     #footarea div span{
@@ -136,7 +419,7 @@ div{
     }
 
     header span{
-        font-size: 40px;
+        font-size: 20px;
     }
 
 }
