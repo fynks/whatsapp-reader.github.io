@@ -1,5 +1,3 @@
-
-
 window.addEventListener('load',() =>{
     document.getElementById('archivo').addEventListener('change',abrirArchivo)
 })
@@ -150,19 +148,20 @@ function AdicionMensajes(usuario,cuerpoMensaje,hora,linea){
         }
     }
 
-    // Crea el párrafo del mensaje
+    // Create the message paragraph
+
     const msgText = document.createElement("p");
 
     msgText.innerHTML = cuerpoMensaje;
     msgText.id = "cuerpo";
     msgText.className = "cuerpocont";
 
-    // Crea el párrafo de la fecha
+    // Create the date paragraph
     const fechaTexto = document.createElement("p");
     fechaTexto.textContent = hora;
     fechaTexto.id = "fecha";
 
-    // Obtiene el elemento que será padre del mensaje
+    // Gets the element that will be the parent of the message
     var currentDiv = document.getElementById("area");
 
     // Crea el párrafo del día si se necesita

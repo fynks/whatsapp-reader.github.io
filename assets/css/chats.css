@@ -6,7 +6,7 @@
 #elements{
     background-color: transparent;
     margin: 0;
-    margin-right: 10px;
+    margin-right: .625rem;
     padding: 0;
 }
 
@@ -14,9 +14,9 @@
     max-width: 70%;
     display: inline-flex;
     opacity: 1;
-    padding-left: 15px;
-    border-radius:15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.325);
+    padding-left: .9375rem;
+    border-radius:.9375rem;
+    box-shadow: 0rem 0rem .625rem rgba(0, 0, 0, 0.325);
 }
 
 .oth{
@@ -29,11 +29,11 @@
 }
 
 #containmsg{
-    padding: 2px;
+    padding: .125rem;
 }
 
 #msg p{
-    margin-bottom: 5px;
+    margin-bottom: .3125rem;
     margin-top: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -54,7 +54,7 @@
     align-items: flex-end;
     color: #A6ABAD;
     min-width:max-content;
-    font-size: 12px;
+    font-size: .75rem;
 }
 
 #cuerpo{
