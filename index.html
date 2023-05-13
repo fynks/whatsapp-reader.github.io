@@ -3,17 +3,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#172830">
-<meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel=icon href=assets/images/iconreader.png>
-<link rel=stylesheet type=text/css href=assets/css/styles.css>
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link rel=preconnect href=https://fonts.gstatic.com>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel=stylesheet>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel=stylesheet>
-<link rel=preload href=assets/js/program.js  as=script crossorigin=anonymous>
+<style>
+:root{ --body-bgc: #172830; --color-dark: #0b141a} body{ -webkit-font-smoothing: antialiased; scroll-behavior: smooth; margin: 0; background-color: var(--body-bgc); overflow-x: hidden; font-family: Arial, sans-serif} img,picture,
+video,canvas,svg{ display: block; max-width: 100%} p,h1,h2,h3,h4,h5,h6{ overflow-wrap: break-word} div{ border-radius: .9375rem; padding: .625rem} header{ background-color: #0b141a; position: sticky; top: 0; z-index: 10; box-shadow: 0 .125rem .625rem rgba(0, 0, 0, .325); border-radius: 0} header div{ padding: 8px; display: flex; align-items: center; justify-content: left; color: rgb(255, 255, 255); font-family: "Rubik", sans-serif; font-weight: 500} header span{ margin-left: .35rem; font-size: 1.25rem} #headercont{ display: grid; grid-template-columns: repeat(1, 1fr); place-items: center; border-radius: 0} #reload{ display: none; justify-self: right; padding: .4rem} #reloader{ border-radius: 50%; width: 1rem; height: 1rem; background-color: #76a872; background-image: url("/assets/images/refresh.svg"); background-size: 80%; background-position: center; background-repeat: no-repeat; transition: transform 1s, background-color .2s} #reloader:hover{ cursor: pointer; background-color: #9cdf97; transform: rotate(100deg)} #preview{ font-size: .9rem; text-align: center; color: rgb(52, 238, 98)} #userPreview{ display: none; text-align: center; color: #fff} #title{ text-align: center; color: #fff} #subtitle{ text-align: center; color: #b4ffae; text-decoration: underline; text-decoration-style: dotted; padding: .5rem; width: fit-content; margin-block: .5rem; margin-inline: auto; font-size: 1rem} #area{ background-image: url("./assets/images/background.webp"); background-repeat: repeat; background-size: 50%; width: 90%; margin: auto; margin-bottom: 1.5625rem; transition: opacity .2s} #area:first-child{ margin-top: 0} #containall{ display: flex; align-items: center; flex-direction: column; margin: 0; margin-top: .9375rem; margin-bottom: .9375rem; padding: 0}#containall p{ margin-top: .3125rem; margin-bottom: .3125rem; padding-left: .625rem; padding-right: .625rem} .date{ position: sticky; z-index: 10; top: 5rem} #dia{ display: inline-block; align-content: center; justify-content: center; color: #fff; border-radius: 1.25rem; text-align: center; font-weight: 400; background-color: #1c272d; font-size: .9375rem; min-width: 15.625rem; padding: .4rem} #warn{ color: #fff; border-radius: .4375rem; text-align: center; font-weight: 400; background-color: #202c33; opacity: .8; font-size: 1rem; padding: .5rem} #contUsers{ display: none; background-color: var(--color-dark); flex-wrap: wrap; align-items: center; justify-content: center; gap: .3125rem; margin-bottom: 1.25rem; margin-inline: 1.875rem; padding: 1rem} #user{ display: flex; align-items: center; justify-content: center; background-color: #b4ffae} #imagen{ background-image: url("/assets/images/user.svg"); background-size: contain; background-repeat: no-repeat; background-size: 80%; background-position: center; background-color: #fff; border-radius: 50%; float: left; width: .5rem; height: .5rem} #user span{ margin-inline: .625rem; float: right; text-align: center; overflow-wrap: break-word} #uploader{ display: none} #upload{ background-color: var(--color-dark); border-radius: 0; text-align: center; padding-block: .5rem} #upload label{ display: flex; width: fit-content; flex-direction: row; align-items: center; gap: .4rem; ; padding: .5rem 1rem; background-color: #b4ffae; border-radius: .625rem; font-weight: 500; margin-block: 1rem; margin-inline: auto} #upload label:active,
+#upload label:hover{ background-color: #76a872} #txtusr{ margin-top: 0; color: white} #activeUser{ text-align: center; color: #fff; cursor: pointer; border-radius: .625rem; background-color: inherit; font-size: 1rem; padding: .3rem .4rem} footer{ background-color: var(--color-dark); border-radius: 0; display: grid; place-items: center; padding: 1rem; color: #fff} #elements{ background-color: transparent; margin: 0; margin-right: .625rem; padding: 0} #msg{ max-width: 70%; display: inline-flex; opacity: 1; padding-left: .9375rem; border-radius: .9375rem; box-shadow: 0 0 .625rem rgba(0, 0, 0, .325)} #msg p{ margin-bottom: .3125rem; margin-top: 0; font-family: 'Roboto', sans-serif; font-weight: 400; font-size: .9rem} #msg:first-child{ font-weight: 500; color: #94b8f6} #msg:last-child{ margin: 0; border: 0; display: inline-flex} .oth{ align-content: center; justify-content: flex-start} .oth div{ background-color: #202C33} .env{ justify-content: flex-end}
+.env div{ background-color: #005C4B} #containmsg{ padding: .125rem; display: flex} #fecha{ align-items: flex-end; color: #A6ABAD; min-width: max-content; font-size: .75rem} #cuerpo{ color: #fff} .cuerpocont{ text-align: left; word-break: break-word}
+</style>
 <title>WhatsApp Reader</title>
+<link rel=preload href=assets/js/program.js  as="script">
 </head>
 <header>
 <div id=headercont>
@@ -27,19 +26,21 @@
 </div>
 </header>
 <body>
-<h3 id=titulo>Interprets your exported WhatsApp messages</h3>
-<h4 id=subtitulo>Select the txt file</h4>
-<div id=entrada>
-<label for=archivo id=labArch>Select a file</label>
-<input type=file id=archivo accept=".txt">
+<h4 id="title">An easy way to read your exported whatsapp chats  by selecting the</h4>
+<p id="subtitle"> <code>.txt</code> file</div>
+<div id=upload>
+<label for=uploader id=labArch>
+ <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"><path stroke="none" d="M0 0h24v24H0z"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2zM12 11v6"/><path d="M9.5 13.5 12 11l2.5 2.5"/></svg>
+Select file</label>
+<input type=file id=uploader accept=".txt">
 <div id=configs>
 <h3 id=txtusr>Active user</h3>
-<select name=prueba id=optionpov>
+<select name=prueba id=activeUser>
 </select>
 </div>
 </div>
-<p id=parraf>Preview:</p>
-<p id=userParraf>Users in the conversation:</p>
+<p id=preview>Preview:</p>
+<p id=userPreview>Users in the conversation:</p>
 <div id=contUsers>
 </div>
 <div id=area>
@@ -57,9 +58,7 @@
 </div>
 </div>
 <footer>
-<div id=footarea>
-<div id=final>
-<span id=txtFinal>Made with ♥ by Chand Grehan</span>
+<p>Made with ♥ by Chand Grehan</p>
 </div>
 </footer>
 <script src=assets/js/program.js></script>
